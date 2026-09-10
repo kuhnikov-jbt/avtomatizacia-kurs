@@ -1,0 +1,184 @@
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/GolosText-400-cyr.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/GolosText-400-lat.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/GolosText-400-cyr.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/GolosText-400-lat.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Manrope-700-cyr.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Manrope-700-lat.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/Manrope-700-cyr.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/Manrope-700-lat.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+
+/* ==== фирменная база: снята со страницы подкаста ==== */
+:root{--paper:#faf9f5;--ink:#1a1a19;--grey:#6f6c64;--line:#e4e0d6;--red:#b0382c;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+ font:400 18px/1.72 'Golos Text',-apple-system,Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.col{max-width:680px}
+h1,h2,h3,h4,.num,.rubric,.toc i,.bignum{font-family:Manrope,'Golos Text',sans-serif}
+h1,h2,h3,h4,p,li,td,th,span,b,em{overflow-wrap:break-word}
+code{overflow-wrap:anywhere}
+.steps li span,.check span{min-width:0}
+h1{font-weight:800;font-size:62px;line-height:1.03;letter-spacing:-.035em;margin:0 0 20px}
+h2{font-weight:800;font-size:44px;line-height:1.06;letter-spacing:-.03em;margin:0 0 16px}
+h3{font-weight:800;font-size:27px;line-height:1.22;letter-spacing:-.02em;margin:44px 0 12px}
+h4{font-weight:700;font-size:21px;line-height:1.3;letter-spacing:-.01em;margin:32px 0 8px}
+p{margin:0 0 18px}
+a{color:var(--red)}
+b,strong{font-weight:600}
+.lead{font-size:21px;line-height:1.6;color:#3a3833}
+.rubric{font-weight:700;font-size:13px;line-height:1;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 14px}
+.grey{color:var(--grey)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0 20px;border-bottom:1px solid var(--line)}
+.top img{height:40px;display:block}
+.top span{font-size:14px;color:var(--grey);text-align:right}
+.note{border-left:3px solid var(--red);padding:2px 0 2px 22px;margin:34px 0 0;max-width:680px;font-size:16px;line-height:1.62;color:#3a3833}
+.note b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin:46px 0 0}
+.nums div{padding:22px 24px 20px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.nums div:last-child{border-right:0}
+.num{font-weight:800;font-size:40px;line-height:1;letter-spacing:-.04em;display:block;margin-bottom:6px}
+.nums small{font-size:14px;line-height:1.4;color:var(--grey);display:block}
+.toc{border-top:1px solid var(--line);margin:46px 0 0}
+.toc a{display:flex;gap:20px;align-items:baseline;padding:17px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.toc a:hover{background:#f3f1e9}
+.toc i{font-weight:800;font-size:14px;color:var(--red);font-style:normal;width:26px;flex:none}
+.toc b{font-weight:600;font-size:19px}
+.toc span{color:var(--grey);font-size:16px;margin-left:auto;text-align:right;max-width:54%}
+.sep{height:1px;background:var(--line);margin:64px 0}
+.sep.big{margin:82px 0 64px}
+.split{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:56px;align-items:start;margin:0 0 10px}
+.split p:last-child{margin-bottom:0}
+.steps{border-top:1px solid var(--line);margin:34px 0 8px;counter-reset:s;padding:0;margin-left:0}
+.steps li{list-style:none;display:flex;gap:18px;padding:15px 4px;border-bottom:1px solid var(--line);font-size:17px;line-height:1.55}
+.steps li:before{counter-increment:s;content:counter(s,decimal-leading-zero);
+ font:800 13px/1.9 Manrope,sans-serif;color:var(--red);flex:none;width:26px}
+ul.plain{padding-left:0;margin:0 0 18px;max-width:680px}
+ul.plain li{list-style:none;padding-left:20px;position:relative;margin:0 0 11px;line-height:1.65}
+ul.plain li:before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:50%;background:var(--red)}
+figure{margin:30px 0 34px}
+figure img{width:100%;display:block;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 44px rgba(20,18,12,.10)}
+figcaption{padding-top:11px;font-size:15px;line-height:1.5;color:var(--grey);max-width:760px}
+.q{border-left:3px solid var(--ink);padding:2px 0 2px 22px;margin:26px 0;max-width:680px}
+.q b{display:block;font-weight:600;margin-bottom:4px}
+.msg{max-width:660px;margin:0;background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 50px rgba(20,18,12,.10);overflow:hidden}
+.msg .hd{display:flex;gap:13px;align-items:center;padding:17px 24px;border-bottom:1px solid #f0ede4}
+.ava{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;flex:none;
+ font:700 15px/44px Manrope,sans-serif;text-align:center}
+.msg .hd b{font-weight:600;font-size:16px;display:block;line-height:1.3}
+.msg .hd em{font-style:normal;font-size:13px;color:var(--grey)}
+.msg .bd{padding:21px 24px 24px;font-size:17px;line-height:1.65}
+.msg .bd p{margin:0 0 15px}
+.msg .bd p:last-child{margin:0}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.links a{display:inline-block;background:var(--red);color:#fff;text-decoration:none;border-radius:10px;
+ padding:11px 20px;font:600 15px/1.2 Manrope,sans-serif}
+.links a.alt{background:var(--white);color:var(--red);border:1px solid var(--red)}
+.fin{font-size:14px;line-height:1.6;color:var(--grey);margin:28px 0 0;max-width:680px}
+
+/* ==== добавлено для многостраничника курса ==== */
+/* шапка урока: слева логотип-ссылка на оглавление, справа «Урок 03 из 12» */
+.top a.home{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.top a.home b{font:700 15px/1.2 Manrope,sans-serif}
+/* строка урока над заголовком */
+.crumb{display:flex;gap:14px;align-items:baseline;margin:38px 0 10px}
+.crumb i{font:800 13px/1 Manrope,sans-serif;color:var(--red);font-style:normal;letter-spacing:.14em}
+.crumb span{font-size:14px;color:var(--grey)}
+/* карточка «что получится» под заголовком */
+.goal+h2,.goal+h3{margin-top:38px}
+.goal{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:22px 26px;margin:26px 0 0;max-width:680px}
+.goal b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.goal p{margin:0;font-size:17px;line-height:1.6}
+/* таблица «что понадобится» */
+/* таблица шире экрана прокручивается внутри своей рамки, а не тянет страницу */
+.tw{max-width:760px;margin:26px 0 8px;overflow-x:auto}
+.tw table.kit{margin:0}
+table.kit{border-collapse:collapse;width:100%;max-width:760px;margin:26px 0 8px;font-size:16px}
+table.kit th{text-align:left;font:700 13px/1 Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);
+ padding:0 16px 10px 0;border-bottom:1px solid var(--line)}
+table.kit td{padding:13px 16px 13px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+table.kit td:last-child{color:var(--grey)}
+/* кадр терминала: настоящий вывод команд */
+.term{background:#1a1a19;color:#e8e4d9;border-radius:12px;padding:20px 22px;margin:26px 0 10px;max-width:760px;overflow-x:auto;
+ font:400 14px/1.62 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.term b{color:#e0b44a;font-weight:400}
+.term i{color:#8f8a7c;font-style:normal}
+.term .cap{display:block;color:var(--grey);font-size:13px;margin-top:12px}
+/* чек-лист с галочками */
+.check{border-top:1px solid var(--line);margin:30px 0 0;max-width:760px}
+.check label{display:flex;gap:16px;align-items:flex-start;padding:15px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:17px;line-height:1.55}
+.check label:hover{background:#f3f1e9}
+.check input{appearance:none;width:22px;height:22px;flex:none;margin-top:2px;border:1.5px solid #cdc7b7;border-radius:6px;background:var(--white);cursor:pointer}
+.check input:checked{background:var(--red);border-color:var(--red)}
+.check input:checked:after{content:"✓";display:block;color:#fff;font:700 14px/20px Manrope,sans-serif;text-align:center}
+.check label.done span{color:var(--grey);text-decoration:line-through}
+/* блок промпта с кнопкой копирования */
+.prompt{border:1px solid var(--line);border-radius:14px;background:var(--white);margin:26px 0;max-width:760px;overflow:hidden}
+.prompt .ph{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 18px;border-bottom:1px solid #f0ede4}
+.prompt .ph b{font:700 12px/1 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.prompt button{background:var(--white);color:var(--red);border:1px solid var(--red);border-radius:8px;padding:7px 14px;
+ font:600 13px/1 Manrope,sans-serif;cursor:pointer}
+.prompt button:hover{background:var(--red);color:#fff}
+.prompt pre{margin:0;padding:18px;font:400 15px/1.62 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap;color:#2c2a26}
+/* грабли */
+.rake{border-left:3px solid var(--red);background:#f5f2e9;border-radius:0 12px 12px 0;padding:20px 24px;margin:34px 0;max-width:760px}
+.rake b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.rake p{margin:0 0 12px;font-size:16px;line-height:1.65}
+.rake p:last-child{margin:0}
+/* отчёт для созвона */
+.report{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:22px 26px;margin:34px 0 0;max-width:760px}
+.report b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.report textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:400 16px/1.5 'Golos Text',sans-serif;
+ color:var(--ink);background:var(--paper);resize:vertical;min-height:64px}
+.report .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.report button{background:var(--red);color:#fff;border:0;border-radius:10px;padding:11px 20px;font:600 15px/1.2 Manrope,sans-serif;cursor:pointer}
+.report .ok{font-size:14px;color:var(--grey)}
+/* переход между уроками */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:1px solid var(--line);margin:64px 0 0;padding-top:22px}
+.pager a{text-decoration:none;color:inherit;display:block}
+.pager a:hover b{color:var(--red)}
+.pager small{display:block;font-size:13px;color:var(--grey);margin-bottom:5px}
+.pager b{font:700 18px/1.3 Manrope,sans-serif}
+.pager .next{text-align:right}
+/* отметка пройденного в оглавлении */
+.toc a.done i:before{content:"✓ ";}
+.toc a.soon{opacity:.55;pointer-events:none}
+.toc em{font-style:normal;font-size:13px;color:var(--grey);border:1px solid var(--line);border-radius:20px;padding:3px 10px;margin-left:auto}
+/* подвал */
+.foot{border-top:1px solid var(--line);margin:70px 0 0;padding:22px 0 40px;font-size:14px;line-height:1.6;color:var(--grey)}
+@media(max-width:900px){
+ .nums,.split,.pager{grid-template-columns:1fr;gap:22px}
+ .nums div{border-right:0;padding:18px 0 16px}
+ h1{font-size:38px} h2{font-size:30px} h3{font-size:23px} h4{font-size:19px}
+ .lead{font-size:19px} body{font-size:17px} .wrap{padding:0 18px}
+ .toc span{display:none} .top img{height:32px} .sep{margin:48px 0}
+ .pager .next{text-align:left}
+ .term,.prompt pre{font-size:13px}
+ /* таблица на телефоне разворачивается в карточки: колонки по слову не читаются */
+ .tw{overflow-x:visible}
+ table.kit,table.kit tbody,table.kit tr,table.kit td{display:block;width:auto}
+ table.kit tr:first-child{display:none}
+ table.kit tr{border-bottom:1px solid var(--line);padding:14px 0}
+ table.kit tr:last-child{border-bottom:0}
+ table.kit td{border:0;padding:3px 0;font-size:16px}
+ table.kit td:first-child{font-weight:600;color:var(--ink)}
+ table.kit td:not(:first-child):before{content:attr(data-l);display:block;
+  font:700 11px/1.6 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#a09c92}
+ /* шапка: название переносится под логотип, номер урока встаёт следующей строкой */
+ .top{flex-wrap:wrap;gap:6px 14px;align-items:flex-start}
+ .top a.home{min-width:0;flex:1 1 100%}
+ .top a.home b{font-size:14px}
+ .top span{text-align:left;flex:1 1 100%}
+ /* оглавление: заголовок урока и бейдж «в работе» в две строки */
+ .toc a{flex-wrap:wrap;gap:8px 14px}
+ .toc b{flex:1 1 auto;min-width:0}
+ .toc em{margin-left:0}
+ /* кнопка «Скопировать» не должна уходить под обрез */
+ .prompt .ph{flex-wrap:wrap;gap:10px}
+ .prompt .ph b{flex:1 1 100%}
+ .term b,.term i{white-space:pre-wrap}
+}
+/* заглушка на месте ещё не снятого кадра экрана */
+.shot-todo{border:1px dashed #cdc7b7;border-radius:12px;background:#f3f1e9;padding:26px 24px;margin:30px 0 34px;max-width:760px}
+.shot-todo b{display:block;font:700 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+.shot-todo span{font-size:16px;line-height:1.5;color:#3a3833}
