@@ -78,8 +78,8 @@ figcaption{padding-top:11px;font-size:15px;line-height:1.5;color:var(--grey);max
 
 /* ==== добавлено для многостраничника курса ==== */
 /* шапка урока: слева логотип-ссылка на оглавление, справа «Урок 03 из 12» */
-.top a.home{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.top a.home b{font:700 15px/1.2 Manrope,sans-serif}
+.top .home{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.top .home b{font:700 15px/1.2 Manrope,sans-serif}
 /* строка урока над заголовком */
 .crumb{display:flex;gap:14px;align-items:baseline;margin:38px 0 10px}
 .crumb i{font:800 13px/1 Manrope,sans-serif;color:var(--red);font-style:normal;letter-spacing:.14em}
@@ -166,8 +166,8 @@ table.kit td:last-child{color:var(--grey)}
   font:700 11px/1.6 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#a09c92}
  /* шапка: название переносится под логотип, номер урока встаёт следующей строкой */
  .top{flex-wrap:wrap;gap:6px 14px;align-items:flex-start}
- .top a.home{min-width:0;flex:1 1 100%}
- .top a.home b{font-size:14px}
+ .top .home{min-width:0;flex:1 1 100%}
+ .top .home b{font-size:14px}
  .top span{text-align:left;flex:1 1 100%}
  /* оглавление: заголовок урока и бейдж «в работе» в две строки */
  .toc a{flex-wrap:wrap;gap:8px 14px}

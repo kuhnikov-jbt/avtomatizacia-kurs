@@ -52,8 +52,11 @@
       btn.addEventListener('click', function () {
         var title = document.querySelector('h1').textContent.trim();
         var crumb = document.querySelector('.crumb i');
+        // заголовок собранного текста: у урока свой, у отдельной страницы задаётся в data-title
+        var head = btn.getAttribute('data-title');
         var lines = [];
-        lines.push('Отчёт по уроку: ' + (crumb ? crumb.textContent.trim() + '. ' : '') + title);
+        lines.push(head ? head
+                        : 'Отчёт по уроку: ' + (crumb ? crumb.textContent.trim() + '. ' : '') + title);
         lines.push('Дата: ' + new Date().toLocaleDateString('ru-RU'));
         lines.push('Сделано: ' + total() + ' из ' + inputs.length);
         lines.push('');
@@ -63,7 +66,7 @@
         var stuck = document.querySelector('[data-stuck]');
         if (stuck && stuck.value.trim()) {
           lines.push('');
-          lines.push('Где застрял: ' + stuck.value.trim());
+          lines.push((btn.getAttribute('data-stuck-label') || 'Где застрял') + ': ' + stuck.value.trim());
         }
         var text = lines.join('\n');
         var ok = document.querySelector('[data-report-ok]');
