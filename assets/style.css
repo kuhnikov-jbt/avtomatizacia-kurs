@@ -201,3 +201,9 @@ table.kit td:last-child{color:var(--grey)}
 .gate-err{display:block;margin-top:14px;font-size:15px;line-height:1.5;color:var(--red);min-height:22px}
 noscript .gatebox{margin:80px auto;color:var(--ink)}
 @media(max-width:520px){.gatebox form{flex-direction:column}.gatebox button{padding:13px 20px}}
+
+/* черновик подуроков: строки подуроков в оглавлении с отступом и мельче */
+.toc a.sub{padding:11px 4px 11px 46px}
+.toc a.sub b{font-weight:400;font-size:17px}
+.toc a.sub i{width:34px;font-weight:700}
+@media(max-width:900px){.toc a.sub{padding-left:22px}}

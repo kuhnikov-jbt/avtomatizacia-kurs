@@ -98,13 +98,58 @@
   if (links.length) {
     var d = load();
     links.forEach(function (a) {
-      var m = d[a.getAttribute('data-lesson-link')];
+      // в черновике ссылка на урок сводит сразу несколько подуроков: ключи через пробел
+      var keys = a.getAttribute('data-lesson-link').split(' ');
+      var done = 0, total = 0;
+      keys.forEach(function (k) {
+        var x = d[k];
+        if (x) { done += x.done || 0; total += x.total || 0; }
+      });
+      if (a.hasAttribute('data-total')) total = +a.getAttribute('data-total');
+      var m = (done || total) && keys.some(function (k) { return d[k]; }) ? { done: done, total: total } : null;
       if (m && m.total && m.done >= m.total) a.classList.add('done');
       else if (m && m.done) {
         var mark = document.createElement('em');
         mark.textContent = m.done + ' из ' + m.total;
         a.appendChild(mark);
       }
+    });
+  }
+
+  // ── страница урока в черновике: отчёт по галочкам всех подуроков ─────────
+  var hub = document.querySelector('[data-hub-items]');
+  var hubBtn = document.querySelector('[data-report]');
+  if (hub && hubBtn && !box) {
+    hubBtn.addEventListener('click', function () {
+      var subs = JSON.parse(hub.textContent), d = load(), all = 0, got = 0, rows = [];
+      Object.keys(subs).forEach(function (k) {
+        var items = (d[k] && d[k].items) || {};
+        rows.push('');
+        rows.push(subs[k].t);
+        subs[k].c.forEach(function (c) {
+          all++; if (items[c[0]]) got++;
+          rows.push((items[c[0]] ? '[x] ' : '[ ] ') + c[1]);
+        });
+      });
+      var crumb = document.querySelector('.crumb i');
+      var lines = ['Отчёт по уроку: ' + (crumb ? crumb.textContent.trim() + '. ' : '') + document.querySelector('h1').textContent.trim(),
+                   'Дата: ' + new Date().toLocaleDateString('ru-RU'),
+                   'Сделано: ' + got + ' из ' + all].concat(rows);
+      var stuck = document.querySelector('[data-stuck]');
+      if (stuck && stuck.value.trim()) { lines.push(''); lines.push('Где застрял: ' + stuck.value.trim()); }
+      var text = lines.join('\n'), ok = document.querySelector('[data-report-ok]');
+      function done(msg) { if (ok) { ok.textContent = msg; setTimeout(function () { ok.textContent = ''; }, 4000); } }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done('Отчёт скопирован, вставляйте в сообщение'); }
+        catch (e) { done('Скопировать не удалось, выделите текст вручную'); }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done('Отчёт скопирован, вставляйте в сообщение'); }, fallback);
+      } else { fallback(); }
     });
   }
 
