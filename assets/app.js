@@ -98,7 +98,7 @@
   if (links.length) {
     var d = load();
     links.forEach(function (a) {
-      // в черновике ссылка на урок сводит сразу несколько подуроков: ключи через пробел
+      // у урока с подуроками ссылка сводит сразу несколько подуроков: ключи через пробел
       var keys = a.getAttribute('data-lesson-link').split(' ');
       var done = 0, total = 0;
       keys.forEach(function (k) {
@@ -116,7 +116,7 @@
     });
   }
 
-  // ── страница урока в черновике: отчёт по галочкам всех подуроков ─────────
+  // ── страница урока с подуроками: отчёт по галочкам всех подуроков ────────
   var hub = document.querySelector('[data-hub-items]');
   var hubBtn = document.querySelector('[data-report]');
   if (hub && hubBtn && !box) {
