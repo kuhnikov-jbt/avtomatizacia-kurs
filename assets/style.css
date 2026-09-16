@@ -207,3 +207,6 @@ noscript .gatebox{margin:80px auto;color:var(--ink)}
 .toc a.sub b{font-weight:400;font-size:17px}
 .toc a.sub i{width:34px;font-weight:700}
 @media(max-width:900px){.toc a.sub{padding-left:22px}}
+/* дневник: в первой колонке дата целиком, а не номер урока */
+.toc.dnevnik i{width:84px;font-size:13px}
+@media(max-width:900px){.toc.dnevnik i{width:auto}}
