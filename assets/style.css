@@ -210,3 +210,9 @@ noscript .gatebox{margin:80px auto;color:var(--ink)}
 /* дневник: в первой колонке дата целиком, а не номер урока */
 .toc.dnevnik i{width:84px;font-size:13px}
 @media(max-width:900px){.toc.dnevnik i{width:auto}}
+
+/* привал: строка без номера урока, чтобы её было видно среди уроков */
+.toc a.stop{background:#f7f2e4;border-left:3px solid var(--red);padding-left:12px}
+.toc a.stop:hover{background:#f1ead6}
+.toc a.stop i{width:52px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:900px){.toc a.stop i{width:auto}}
