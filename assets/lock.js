@@ -1,10 +1,12 @@
-/* Замок курса: страница приезжает зашифрованной, пароль превращается в ключ и открывает её.
-   Ключ запоминается в браузере, поэтому пароль спрашивается один раз, а не на каждом уроке. */
+/* Замок страницы: содержимое приезжает зашифрованным, пароль его открывает.
+   Паролей может быть несколько: свой пароль страницы и универсальный пароль владельца.
+   Каждый заперт в своём конверте, поэтому подходит любой. Открытый ключ запоминается
+   в браузере, и пароль спрашивается один раз, а не на каждой странице. */
 (function () {
-  var STORE = 'kurs-key';
   var box = document.querySelector('script[data-lock]');
   if (!box) return;
   var L = JSON.parse(box.textContent);
+  var STORE = box.getAttribute('data-store') || 'kurs-key';
 
   var gate = document.querySelector('.gate');
   var form = document.querySelector('[data-gate]');
@@ -23,16 +25,34 @@
     return btoa(s);
   }
 
-  function derive(pass) {
+  function derive(pass, salt) {
     return crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveBits'])
       .then(function (base) {
         return crypto.subtle.deriveBits(
-          { name: 'PBKDF2', salt: bytes(L.s), iterations: L.n, hash: 'SHA-256' }, base, 256);
+          { name: 'PBKDF2', salt: bytes(salt), iterations: L.n, hash: 'SHA-256' }, base, 256);
       });
   }
 
-  function unlock(rawKey) {
-    return crypto.subtle.importKey('raw', rawKey, 'AES-GCM', false, ['decrypt'])
+  /* Пробуем конверты по очереди: подошёл любой — получаем ключ содержимого. */
+  function openEnvelopes(pass) {
+    var list = L.k || [], i = 0;
+    function next() {
+      if (i >= list.length) return Promise.reject(new Error('no'));
+      var env = list[i++];
+      return derive(pass, env.s)
+        .then(function (rawKey) {
+          return crypto.subtle.importKey('raw', rawKey, 'AES-GCM', false, ['decrypt']);
+        })
+        .then(function (key) {
+          return crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes(env.i) }, key, bytes(env.d));
+        })
+        .catch(function () { return next(); });
+    }
+    return next();
+  }
+
+  function unlock(contentKey) {
+    return crypto.subtle.importKey('raw', contentKey, 'AES-GCM', false, ['decrypt'])
       .then(function (key) {
         return crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes(L.i) }, key, bytes(L.d));
       })
@@ -41,10 +61,17 @@
         document.title = page.t;
         slot.innerHTML = page.h;
         if (gate) gate.parentNode.removeChild(gate);
-        var s = document.createElement('script');
-        s.src = L.r + 'assets/app.js';
-        document.body.appendChild(s);
+        if (L.r !== undefined) {           // страницы курса подтягивают свой сценарий
+          var s = document.createElement('script');
+          s.src = L.r + 'assets/app.js';
+          document.body.appendChild(s);
+        }
       });
+  }
+
+  function ask() {
+    if (gate) gate.classList.add('ready');
+    if (field) field.focus();
   }
 
   // ключ с прошлого раза: пароль спрашивать не надо
@@ -59,11 +86,6 @@
     ask();
   }
 
-  function ask() {
-    if (gate) gate.classList.add('ready');
-    if (field) field.focus();
-  }
-
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -71,9 +93,9 @@
       if (!pass) return;
       err.textContent = '';
       form.classList.add('busy');
-      derive(pass).then(function (rawKey) {
-        return unlock(rawKey).then(function () {
-          try { localStorage.setItem(STORE, b64(rawKey)); } catch (e) {}
+      openEnvelopes(pass).then(function (contentKey) {
+        return unlock(contentKey).then(function () {
+          try { localStorage.setItem(STORE, b64(contentKey)); } catch (e) {}
         });
       }).catch(function () {
         form.classList.remove('busy');
