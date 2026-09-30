@@ -20,6 +20,38 @@
 Все файлы лежат рядом с этим, по тому же адресу. Адрес, по которому ты открыл этот файл, без имени
 `USTANOVKA.md` на конце, дальше называется **база**.
 
+## Откуда скачать и куда положить
+
+| Скачать | Положить в рабочую папку клиента |
+| --- | --- |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/CLAUDE.md | `CLAUDE.md` (после вопросов) |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/aboutme.md | `aboutme.md` (после вопросов) |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/sostoyanie.md | `sostoyanie.md` |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/resheniya.md | `resheniya.md` |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/platnye-servisy.md | `platnye-servisy.md` (если нужен) |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/zhurnal-pravok.md | `zhurnal-pravok.md` (если нужен) |
+| https://kuhnikov-jbt.github.io/avtomatizacia-kurs/kit/settings.json | `.claude/settings.json` (если нужен) |
+
+Сам `USTANOVKA.md` в папку клиента не кладётся: это инструкция для тебя.
+
+Что должно получиться в рабочей папке клиента:
+
+```
+<рабочая папка клиента>/
+├── CLAUDE.md             правила работы, Claude читает их в каждом разговоре
+├── aboutme.md            о бизнесе, на него ссылается CLAUDE.md
+├── sostoyanie.md         состояние длинной задачи
+├── resheniya.md          журнал решений владельца
+├── platnye-servisy.md    если есть платные сервисы
+├── zhurnal-pravok.md     если Claude правит сайты или рабочие системы
+├── .claude/
+│   └── settings.json     если есть файл с паролями
+└── .env.secret           файл с паролями: заводит и заполняет клиент сам, Claude его не создаёт и не читает
+```
+
+Рабочая папка это папка, в которой клиент запускает Claude. Если непонятно, какая это, спроси клиента
+и не начинай, пока не ответит.
+
 ## Как скачивать
 
 Файлы нужны дословно, без пересказа.
