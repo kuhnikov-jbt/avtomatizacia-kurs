@@ -5,5 +5,19 @@
       "Edit(./.env.secret)",
       "Write(./.env.secret)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|MultiEdit|Write|NotebookEdit|Grep|Glob|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if grep -qE '\"(file_path|path|notebook_path|pattern|command)\" *: *\"[^\"]*\\.env\\.secret'; then echo 'Файл секретов закрыт для Claude: попроси владельца внести или прочитать вручную' >&2; exit 2; fi; exit 0",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   }
 }
