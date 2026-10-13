@@ -60,6 +60,10 @@
         var page = JSON.parse(new TextDecoder().decode(plain));
         document.title = page.t;
         slot.innerHTML = page.h;
+        // скрипты из innerHTML браузер не запускает: пересоздаём встроенные (панель глав разбора)
+        [].slice.call(slot.querySelectorAll('script:not([src])')).forEach(function (o) {
+          var n = document.createElement('script'); n.text = o.text; o.parentNode.replaceChild(n, o);
+        });
         if (gate) gate.parentNode.removeChild(gate);
         if (L.r !== undefined) {           // страницы курса подтягивают свой сценарий
           var s = document.createElement('script');
