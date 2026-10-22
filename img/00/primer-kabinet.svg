@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="Golos Text, Segoe UI, Arial, sans-serif">
+  <rect width="960" height="400" rx="16" fill="#fff" stroke="#e4e0d6"/>
+  <rect x="0.5" y="0.5" width="220" height="399" rx="16" fill="#faf9f5" stroke="#e4e0d6"/>
+  <text x="32" y="52" font-size="13" font-weight="700" letter-spacing="2" fill="#b0382c">ПРИМЕР</text>
+  <text x="32" y="70" font-size="13" font-weight="700" letter-spacing="2" fill="#b0382c">ИНТЕРФЕЙСА</text>
+  <text x="32" y="122" font-size="16" fill="#6f6c64">Профиль</text>
+  <rect x="20" y="146" width="180" height="40" rx="8" fill="#f1ead6"/>
+  <text x="32" y="172" font-size="16" font-weight="700" fill="#1a1a19">Подписка</text>
+  <text x="32" y="222" font-size="16" fill="#6f6c64">Использование</text>
+  <text x="32" y="270" font-size="16" fill="#6f6c64">Безопасность</text>
+  <text x="264" y="72" font-size="26" font-weight="700" fill="#1a1a19">Подписка</text>
+  <rect x="264" y="100" width="656" height="160" rx="12" fill="#faf9f5" stroke="#e4e0d6"/>
+  <text x="292" y="142" font-size="15" fill="#6f6c64">Тариф</text>
+  <text x="292" y="168" font-size="20" font-weight="700" fill="#1a1a19">Базовый тариф</text>
+  <rect x="740" y="124" width="150" height="32" rx="16" fill="#e7f1e4"/>
+  <text x="815" y="145" font-size="14" font-weight="700" fill="#2f6b2a" text-anchor="middle">Действует</text>
+  <text x="292" y="214" font-size="15" fill="#6f6c64">Следующее списание</text>
+  <text x="292" y="240" font-size="17" fill="#1a1a19">дд.мм.гггг · сумма по тарифу</text>
+  <rect x="264" y="290" width="200" height="46" rx="10" fill="#fff" stroke="#b0382c"/>
+  <text x="364" y="319" font-size="15" font-weight="700" fill="#b0382c" text-anchor="middle">Сменить тариф</text>
+  <rect x="480" y="290" width="200" height="46" rx="10" fill="#fff" stroke="#e4e0d6"/>
+  <text x="580" y="319" font-size="15" fill="#1a1a19" text-anchor="middle">Обновить карту</text>
+  <rect x="696" y="290" width="200" height="46" rx="10" fill="#fff" stroke="#e4e0d6"/>
+  <text x="796" y="319" font-size="15" fill="#6f6c64" text-anchor="middle">Отменить</text>
+</svg>

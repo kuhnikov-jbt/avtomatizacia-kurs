@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" font-family="Golos Text, Segoe UI, Arial, sans-serif">
+  <rect width="960" height="440" rx="16" fill="#fff" stroke="#e4e0d6"/>
+  <text x="40" y="52" font-size="13" font-weight="700" letter-spacing="2" fill="#b0382c">ПРИМЕР ИНТЕРФЕЙСА</text>
+  <text x="40" y="92" font-size="26" font-weight="700" fill="#1a1a19">Выберите тариф</text>
+  <g>
+    <rect x="40" y="124" width="420" height="276" rx="12" fill="#faf9f5" stroke="#e4e0d6"/>
+    <text x="68" y="168" font-size="20" font-weight="700" fill="#1a1a19">Базовый тариф</text>
+    <text x="68" y="198" font-size="15" fill="#6f6c64">Для знакомства и обычной нагрузки</text>
+    <text x="68" y="246" font-size="15" fill="#1a1a19">• Чат и работа с файлами</text>
+    <text x="68" y="274" font-size="15" fill="#1a1a19">• Недельный лимит использования</text>
+    <rect x="68" y="326" width="364" height="48" rx="10" fill="#fff" stroke="#b0382c"/>
+    <text x="250" y="356" font-size="16" font-weight="700" fill="#b0382c" text-anchor="middle">Начать с этого</text>
+  </g>
+  <g>
+    <rect x="500" y="124" width="420" height="276" rx="12" fill="#faf9f5" stroke="#e4e0d6"/>
+    <text x="528" y="168" font-size="20" font-weight="700" fill="#1a1a19">Расширенный тариф</text>
+    <text x="528" y="198" font-size="15" fill="#6f6c64">Когда базового лимита не хватает</text>
+    <text x="528" y="246" font-size="15" fill="#1a1a19">• Всё, что в базовом</text>
+    <text x="528" y="274" font-size="15" fill="#1a1a19">• Лимит в несколько раз больше</text>
+    <rect x="528" y="326" width="364" height="48" rx="10" fill="#b0382c"/>
+    <text x="710" y="356" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">Перейти позже</text>
+  </g>
+</svg>
