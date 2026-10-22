@@ -33,7 +33,7 @@ b,strong{font-weight:600}
 .top img{height:40px;display:block}
 .top span{font-size:14px;color:var(--grey);text-align:right}
 .note{border-left:3px solid var(--red);padding:2px 0 2px 22px;margin:34px 0 0;max-width:680px;font-size:16px;line-height:1.62;color:#3a3833}
-.note b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}
+.note>b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}
 .nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin:46px 0 0}
 .nums div{padding:22px 24px 20px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
 .nums div:last-child{border-right:0}
@@ -60,7 +60,7 @@ figure{margin:30px 0 34px}
 figure img{width:100%;display:block;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 44px rgba(20,18,12,.10)}
 figcaption{padding-top:11px;font-size:15px;line-height:1.5;color:var(--grey);max-width:760px}
 .q{border-left:3px solid var(--ink);padding:2px 0 2px 22px;margin:26px 0;max-width:680px}
-.q b{display:block;font-weight:600;margin-bottom:4px}
+.q>b{display:block;font-weight:600;margin-bottom:4px}
 .msg{max-width:660px;margin:0;background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 50px rgba(20,18,12,.10);overflow:hidden}
 .msg .hd{display:flex;gap:13px;align-items:center;padding:17px 24px;border-bottom:1px solid #f0ede4}
 .ava{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;flex:none;
@@ -87,7 +87,7 @@ figcaption{padding-top:11px;font-size:15px;line-height:1.5;color:var(--grey);max
 /* карточка «что получится» под заголовком */
 .goal+h2,.goal+h3{margin-top:38px}
 .goal{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:22px 26px;margin:26px 0 0;max-width:680px}
-.goal b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.goal>b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .goal p{margin:0;font-size:17px;line-height:1.6}
 /* таблица «что понадобится» */
 /* таблица шире экрана прокручивается внутри своей рамки, а не тянет страницу */
@@ -122,12 +122,12 @@ table.kit td:last-child{color:var(--grey)}
 .prompt pre{margin:0;padding:18px;font:400 15px/1.62 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap;color:#2c2a26}
 /* грабли */
 .rake{border-left:3px solid var(--red);background:#f5f2e9;border-radius:0 12px 12px 0;padding:20px 24px;margin:34px 0;max-width:760px}
-.rake b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.rake>b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .rake p{margin:0 0 12px;font-size:16px;line-height:1.65}
 .rake p:last-child{margin:0}
 /* отчёт для созвона */
 .report{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:22px 26px;margin:34px 0 0;max-width:760px}
-.report b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.report>b{display:block;font:700 13px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .report textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:400 16px/1.5 'Golos Text',sans-serif;
  color:var(--ink);background:var(--paper);resize:vertical;min-height:64px}
 .report .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
