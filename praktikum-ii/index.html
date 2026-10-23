@@ -191,6 +191,8 @@ ul.minus li::before { content: ""; position: absolute; left: 0; top: .72em; widt
 .price { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--ink); margin-top: 12px; }
 .price > div { padding: 32px 40px 8px 0; }
 .price > div + div { padding-left: 40px; border-left: 1px solid var(--line); }
+.price .old { white-space: nowrap; font-family: var(--serif); font-size: clamp(26px, 2.6vw, 36px); color: var(--muted); margin-bottom: 6px; }
+.price .old s { text-decoration-color: var(--accent); text-decoration-thickness: 3px; }
 .sum { white-space: nowrap; font-family: var(--serif); font-size: clamp(48px, 5.2vw, 80px); line-height: 1; font-weight: 700; letter-spacing: -.02em; }
 .per { color: var(--muted); margin: 8px 0 22px; }
 .why { font-size: 16px; color: var(--ink-2); margin-bottom: 28px; padding-left: 16px; border-left: 2px solid var(--accent); }
@@ -608,6 +610,7 @@ footer { padding: 28px 0; font-size: 14px; color: #8c877d; background: var(--ink
       <h2>Условия первого потока</h2>
       <div class="price">
         <div>
+          <div class="old"><s>400 000 ₽</s></div>
           <div class="sum">100 000 ₽</div>
           <p class="per">за участника, первый поток</p>
           <div class="why">Первый запуск формата. Группа небольшая, обратной связи много, программу дорабатываем вместе с первыми участниками. Поэтому условия особые.</div>
