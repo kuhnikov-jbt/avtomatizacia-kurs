@@ -188,8 +188,9 @@ ul.minus li::before { content: ""; position: absolute; left: 0; top: .72em; widt
 .vcard .tag { font-size: 13px; color: var(--accent); font-weight: 600; margin: 14px 0 4px; }
 .vcard b { display: block; font-size: 18px; line-height: 1.35; }
 .vcard p { font-size: 15px; color: var(--muted); margin-top: 6px; }
-.stage-shots { display: grid; grid-template-columns: 1fr 1fr 1.6fr; gap: 28px; margin-top: 56px; align-items: start; }
+.stage-shots { display: grid; grid-template-columns: 300px 1fr; gap: 28px; margin-top: 56px; align-items: start; }
 .stage-shots .clip { aspect-ratio: 3 / 4; }
+.host .clip.banner { aspect-ratio: 3 / 4; margin-top: 28px; }
 .tg { border-top: 2px solid var(--ink); padding-top: 22px; }
 .tg b { font-family: var(--serif); font-size: 24px; display: block; margin-bottom: 8px; }
 .tg p { color: var(--ink-2); margin-bottom: 18px; }
@@ -256,8 +257,8 @@ footer { padding: 28px 0; font-size: 14px; color: #8c877d; background: var(--ink
   .host { grid-template-columns: 240px 1fr; gap: 32px; }
   .apply-grid { grid-template-columns: 1fr; gap: 40px; }
   .videos { grid-template-columns: 1fr 1fr; }
-  .stage-shots { grid-template-columns: 1fr 1fr; }
-  .stage-shots .tg { grid-column: 1 / -1; }
+  .stage-shots { grid-template-columns: 1fr; }
+  .stage-shots .clip { max-width: 320px; }
 }
 /* Маршрут на узком экране: вертикальным списком */
 @media (max-width: 760px) {
@@ -551,11 +552,13 @@ footer { padding: 28px 0; font-size: 14px; color: #8c877d; background: var(--ink
           <div class="clip" data-photo>
             <video src="../media/tpp.mp4" poster="../media/tpp-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
           </div>
-          <p class="clip-cap">Выступление перед предпринимателями Ленинского округа, Видное<span class="tbd">подпись проверить</span></p>
+          <p class="clip-cap">Выступление в роли главы комитета по ИИ ТПП Московской области перед предпринимателями Ленинского округа, Видное</p>
+          <div class="clip banner"><img src="../media/tpp-banner.jpg" alt="Филиал Торгово-промышленной палаты Московской области, Видное" loading="lazy"></div>
+          <p class="clip-cap">Торгово-промышленная палата Московской области, филиал Ленинского городского округа</p>
         </div>
         <div>
           <h3>Алексей Кухников<span class="tbd">имя на странице подтвердить</span></h3>
-          <p class="role">Ведёт сессию и групповые разборы</p>
+          <p class="role">Глава комитета по ИИ Торгово-промышленной палаты Московской области (Ленинский городской округ). Ведёт сессию и групповые разборы</p>
           <p>Около десяти лет я развиваю JBTools. Мне интересно, как связаны продажи, снабжение, деньги, документы и решения собственника, и как организовать эту работу иначе.</p>
           <p style="margin-bottom:22px">ИИ дал мне возможность самому проверять идеи и создавать инструменты для своей компании. На сессии соединяем этот опыт с разбором твоего бизнеса: где нужны технологии, где достаточно изменить процесс, а где пока не стоит начинать разработку.</p>
           <div class="fact"><b>≈1 500 <small>часов консультаций</small></b><p>Около 1 500 часов консультаций, в том числе по продажам и переговорам.<em>Отсюда умение быстро увидеть, где у владельца застревает решение и что мешает дойти от плана до дела.</em></p></div>
@@ -603,10 +606,6 @@ footer { padding: 28px 0; font-size: 14px; color: #8c877d; background: var(--ink
       <div>
         <div class="clip"><video src="../media/klub.mp4" poster="../media/klub-poster.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
         <p class="clip-cap">Встреча клуба предпринимателей: разбор ИИ на задачах участников<span class="tbd">название клуба</span></p>
-      </div>
-      <div>
-        <div class="clip"><img src="../media/tpp-banner.jpg" alt="Филиал Торгово-промышленной палаты Московской области, Видное" loading="lazy"></div>
-        <p class="clip-cap">Торгово-промышленная палата Московской области, филиал Ленинского округа</p>
       </div>
       <div class="tg">
         <b>Мой телеграм-канал</b>
