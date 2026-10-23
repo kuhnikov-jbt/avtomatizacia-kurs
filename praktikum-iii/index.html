@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Практикум Алексея Кухникова: ИИ в твоём бизнесе</title>
+<meta name="description" content="Очный практикум для собственников бизнеса: разобрать, где ИИ полезен твоей компании, составить план внедрения на восемь недель и получить четыре недели групповой поддержки.">
+<link rel="preload" href="../assets/fonts/Manrope-700-cyr.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Manrope"; font-weight: 700; font-display: swap; src: url("../assets/fonts/Manrope-700-cyr.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Manrope"; font-weight: 700; font-display: swap; src: url("../assets/fonts/Manrope-700-lat.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215; }
+@font-face { font-family: "Golos Text"; font-weight: 400; font-display: swap; src: url("../assets/fonts/GolosText-400-cyr.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Golos Text"; font-weight: 400; font-display: swap; src: url("../assets/fonts/GolosText-400-lat.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215; }
+
+:root {
+  --bg: #F6F4EF;
+  --paper: #FFFFFF;
+  --ink: #1D1D1B;
+  --muted: #62605B;
+  --line: #DDD9D1;
+  --red: #9E2922;
+  --red-bright: #E0261C;
+  --red-soft: #F3E4E1;
+  --draft: #F7E7A6;
+  --draft-ink: #5C4A00;
+  --wrap: 1160px;
+  --text: 680px;
+  --head: "Manrope", "Golos Text", system-ui, sans-serif;
+  --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--red); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.12; letter-spacing: -0.015em; }
+h2 { font-size: clamp(28px, 4vw, 42px); max-width: 20ch; }
+h3 { font-size: 21px; line-height: 1.3; letter-spacing: 0; }
+p + p { margin-top: 14px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: var(--text); }
+.muted { color: var(--muted); }
+.small { font-size: 15px; line-height: 1.5; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; background: var(--paper); padding: 8px 14px; z-index: 50; }
+
+/* Кнопки */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; background: var(--red); color: #fff; font-family: var(--head); font-weight: 700; font-size: 17px; text-decoration: none; border-radius: 6px; }
+.btn:hover { background: #86211B; text-decoration: none; }
+.btn-sm { min-height: 42px; padding: 0 18px; font-size: 15px; }
+
+/* Черновые метки: видны в превью, прячутся по ?clean */
+.draftbar { background: var(--draft); color: var(--draft-ink); font-size: 14px; line-height: 1.45; padding: 10px 0; }
+.draftbar a { color: var(--draft-ink); }
+.gap { background: var(--draft); color: var(--draft-ink); border-radius: 3px; padding: 0 4px; font-size: 0.85em; white-space: nowrap; }
+.gap-block { border: 2px dashed #C9B14A; background: #FBF4D6; color: var(--draft-ink); border-radius: 8px; padding: 18px 20px; font-size: 15px; line-height: 1.5; }
+.clean .draftbar, .clean .gap, .clean .gap-block { display: none; }
+
+/* Шапка */
+.top { border-bottom: 1px solid var(--line); background: var(--bg); }
+.top .wrap { display: flex; align-items: center; gap: 28px; min-height: 68px; }
+.brand { font-family: var(--head); font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; margin-right: auto; }
+.nav { display: flex; gap: 22px; }
+.nav a { color: var(--ink); text-decoration: none; font-size: 15px; }
+.nav a:hover { color: var(--red); }
+
+/* Разделы */
+section { padding: 88px 0; border-top: 1px solid var(--line); }
+section.hero { border-top: 0; padding: 72px 0 80px; }
+.kicker { font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+.kicker::before { content: ""; width: 28px; height: 3px; background: var(--red-bright); display: inline-block; }
+
+/* 1. Первый экран */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.hero h1 { font-size: clamp(40px, 6.2vw, 68px); max-width: 14ch; }
+.hero h1 em { font-style: normal; color: var(--red); }
+.lead { font-size: clamp(18px, 2vw, 21px); margin-top: 26px; max-width: 34em; }
+.terms-line { margin-top: 22px; font-family: var(--head); font-weight: 700; font-size: 17px; }
+.terms-line span + span::before { content: "·"; margin: 0 10px; color: var(--muted); }
+.actions { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+.facts { border-top: 2px solid var(--ink); }
+.facts div { display: grid; grid-template-columns: 9.5em 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.45; }
+.facts dt { color: var(--muted); }
+.facts dd { font-weight: 400; }
+.facts .price dd { font-family: var(--head); font-weight: 700; font-size: 20px; }
+.byline { margin-top: 18px; font-size: 15px; color: var(--muted); }
+
+/* 2. Узнавание */
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; }
+.obs { list-style: none; counter-reset: obs; }
+.obs li { counter-increment: obs; position: relative; padding: 0 0 22px 56px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+.obs li::before { content: "0" counter(obs); position: absolute; left: 0; top: 2px; font-family: var(--head); font-weight: 700; font-size: 15px; color: var(--red); }
+.bridge { font-family: var(--head); font-weight: 700; font-size: 21px; line-height: 1.4; }
+
+/* 3. Результат: образец плана */
+.plan-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; margin-top: 40px; align-items: start; }
+.qlist { list-style: none; }
+.qlist li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.qlist li:first-child { border-top: 1px solid var(--line); }
+.sheet { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 30px 32px 26px; box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(29,29,27,0.35); }
+.sheet-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+.sheet-head strong { font-family: var(--head); font-size: 18px; }
+.stamp { font-size: 13px; font-weight: 400; color: var(--red); border: 1.5px solid var(--red); border-radius: 3px; padding: 2px 8px; letter-spacing: 0.02em; }
+.sheet table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.5; }
+.sheet th, .sheet td { text-align: left; vertical-align: top; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.sheet th { width: 34%; padding-right: 18px; color: var(--muted); font-weight: 400; }
+.sheet figcaption { padding-top: 14px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.weeks { margin-top: 44px; }
+.weeks-bar { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin-top: 14px; }
+.weeks-bar span { height: 38px; border-radius: 3px; background: var(--paper); border: 1px solid var(--line); font-size: 13px; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+.weeks-bar span.sup { background: var(--ink); border-color: var(--ink); color: #fff; }
+.weeks-legend { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 12px; font-size: 15px; color: var(--muted); }
+.weeks-legend i { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: -2px; margin-right: 8px; border: 1px solid var(--line); background: var(--paper); }
+.weeks-legend i.sup { background: var(--ink); border-color: var(--ink); }
+.weeks-note { font-family: var(--head); font-weight: 700; font-size: 19px; }
+
+/* Раскрытия */
+details { border-top: 1px solid var(--line); }
+details:last-of-type { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 18px 40px 18px 0; position: relative; font-family: var(--head); font-weight: 700; font-size: 18px; line-height: 1.35; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 26px; font-weight: 400; color: var(--red); }
+details[open] summary::after { content: "−"; }
+.det-body { padding: 0 0 22px; max-width: var(--text); }
+.det-body ol, .det-body ul { padding-left: 22px; }
+.det-body li + li { margin-top: 8px; }
+.plan-more { margin-top: 36px; max-width: 820px; }
+
+/* 4. Доказательства */
+.case-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 44px; padding-top: 36px; border-top: 2px solid var(--ink); }
+.status { display: inline-block; font-size: 13px; padding: 3px 10px; border-radius: 30px; background: var(--red-soft); color: var(--red); margin-bottom: 14px; }
+.steps-dl div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.steps-dl dt { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.case-side { display: flex; flex-direction: column; gap: 18px; }
+.case-side blockquote { font-size: 19px; line-height: 1.55; padding-left: 20px; border-left: 3px solid var(--red-bright); }
+.case-side cite { display: block; font-style: normal; font-size: 14px; color: var(--muted); margin-top: 10px; }
+.cases-more { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+.cases-more article { padding-top: 22px; border-top: 1px solid var(--ink); }
+.cases-more h3 { margin-bottom: 10px; }
+.src { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.disclaim { margin-top: 44px; font-size: 15px; color: var(--muted); max-width: var(--text); }
+
+/* 5. Процесс */
+.flow { list-style: none; margin-top: 44px; display: grid; gap: 0; }
+.flow > li { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding: 30px 0; border-top: 1px solid var(--line); }
+.flow > li:last-child { border-bottom: 1px solid var(--line); }
+.flow .when { font-family: var(--head); font-weight: 700; font-size: 22px; line-height: 1.25; }
+.flow .when small { display: block; font-family: var(--body); font-weight: 400; font-size: 15px; color: var(--muted); margin-top: 6px; }
+.tech { margin-top: 44px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+.tech h3 { margin-bottom: 12px; }
+.tech ul { padding-left: 20px; }
+.tech li + li { margin-top: 8px; }
+
+/* 6. Автор */
+.author { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 64px; }
+.author h2 { max-width: 18ch; margin-bottom: 26px; }
+.videos { list-style: none; border-top: 2px solid var(--ink); }
+.videos li { border-bottom: 1px solid var(--line); }
+.videos a { display: block; padding: 18px 0; text-decoration: none; color: var(--ink); }
+.videos a:hover strong { color: var(--red); }
+.videos strong { display: block; font-family: var(--head); font-size: 18px; line-height: 1.35; }
+.videos span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+/* 7. Условия */
+.offer { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 48px; margin-top: 40px; display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 56px; }
+.price-big { font-family: var(--head); font-weight: 700; font-size: clamp(40px, 5vw, 56px); line-height: 1; letter-spacing: -0.02em; }
+.price-note { margin-top: 10px; color: var(--muted); }
+.offer .btn { margin-top: 28px; }
+.when-line { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 16px; }
+.offer h3 { font-size: 17px; margin-bottom: 10px; }
+.offer ul { list-style: none; }
+.offer ul li { position: relative; padding-left: 22px; }
+.offer ul li + li { margin-top: 6px; }
+.offer ul li::before { content: ""; position: absolute; left: 2px; top: 0.72em; width: 8px; height: 2px; background: var(--ink); }
+.offer .block + .block { margin-top: 26px; }
+.fit { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+.fit h3 { margin-bottom: 10px; }
+.nopromise { margin-top: 40px; max-width: var(--text); }
+
+/* 8. Вопросы и финал */
+.faq { margin-top: 36px; max-width: 820px; }
+.final { text-align: left; }
+.final h2 { max-width: 22ch; }
+.final .next { margin-top: 18px; max-width: 34em; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding: 36px 0 48px; font-size: 15px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
+footer .who { margin-right: auto; }
+
+@media (max-width: 960px) {
+  .nav { display: none; }
+  .hero-grid, .split, .plan-grid, .case-main, .author, .offer, .tech { grid-template-columns: 1fr; gap: 40px; }
+  .flow > li { grid-template-columns: 1fr; gap: 10px; }
+  .offer { padding: 32px 28px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .wrap { padding: 0 20px; }
+  section { padding: 64px 0; }
+  section.hero { padding: 44px 0 56px; }
+  .top .wrap { gap: 12px; }
+  .brand { font-size: 15px; }
+  .cases-more, .fit { grid-template-columns: 1fr; gap: 32px; }
+  .facts div { grid-template-columns: 1fr; gap: 2px; }
+  .sheet { padding: 22px 18px 18px; }
+  .sheet table, .sheet tbody, .sheet tr, .sheet th, .sheet td { display: block; width: 100%; }
+  .sheet th { padding: 12px 0 2px; border-bottom: 0; font-size: 14px; }
+  .sheet td { padding: 0 0 12px; }
+  .weeks-bar span { font-size: 11px; height: 32px; }
+  .offer { padding: 26px 20px; }
+  .btn { width: 100%; }
+  .top .btn { width: auto; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .nav a, summary::after { transition: background-color .15s, color .15s; }
+}
+</style>
+</head>
+<body>
+<script>if (/[?&]clean\b/.test(location.search)) document.body.classList.add("clean");</script>
+<a class="skip" href="#main">К содержанию</a>
+
+<div class="draftbar" role="note">
+  <div class="wrap">Черновик третьего варианта страницы, на согласование. Жёлтым отмечено то, что ждёт решения; без меток: та же ссылка с <a href="?clean">?clean</a>.</div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Алексей Кухников</a>
+    <nav class="nav" aria-label="Разделы страницы">
+      <a href="#result">Результат</a>
+      <a href="#cases">Примеры</a>
+      <a href="#format">Формат</a>
+      <a href="#terms">Условия</a>
+    </nav>
+    <a class="btn btn-sm" href="https://t.me/alexkukhnikov" data-cta="header">Обсудить участие</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. Первый экран -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">Практикум для собственников бизнеса · Алексей Кухников</p>
+      <h1>Разберём, где ИИ полезен твоему бизнесу. И&nbsp;что делать <em>первым</em>.</h1>
+      <p class="lead">Очная работа над задачами твоей компании, план внедрения на восемь недель и четыре недели групповой поддержки. На опыте решений, которые я делаю для собственного бизнеса.</p>
+      <p class="terms-line"><span>До 10 участников</span><span>Очная сессия</span><span>Первый поток: 100&nbsp;000&nbsp;₽</span></p>
+      <div class="actions">
+        <a class="btn" href="https://t.me/alexkukhnikov" data-cta="hero">Обсудить участие</a>
+        <a href="#cases">Посмотреть примеры из JBTools</a>
+      </div>
+      <p class="byline">Веду сам: собственник JBTools, около 10 лет развиваю свой бизнес.</p>
+    </div>
+    <dl class="facts" aria-label="Коротко об условиях">
+      <div><dt>Для кого</dt><dd>Собственники действующего бизнеса</dd></div>
+      <div><dt>Группа</dt><dd>До 10 предпринимателей</dd></div>
+      <div><dt>Формат</dt><dd>Подготовка, очная рабочая сессия, групповая поддержка</dd></div>
+      <div><dt>На выходе</dt><dd>План внедрения на 8 недель</dd></div>
+      <div><dt>Поддержка</dt><dd>4 недели после встречи, в группе</dd></div>
+      <div><dt>Когда и где</dt><dd>Дата и место очной встречи уточняются <span class="gap">ждёт решения</span></dd></div>
+      <div class="price"><dt>Стоимость</dt><dd>100&nbsp;000&nbsp;₽</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 2. Узнавание -->
+<section>
+  <div class="wrap split">
+    <h2>Идеи есть. До внедрения не доходит.</h2>
+    <div>
+      <ol class="obs">
+        <li>Посмотрел, что умеет ИИ, но непонятно, с какой задачи начать в своей компании.</li>
+        <li>Чтобы попробовать, надо разобраться с доступами, подписками и настройками. И всё опять откладывается.</li>
+        <li>После встречи или выступления хочется действовать, но текущие дела быстро забирают внимание.</li>
+      </ol>
+      <p class="bridge">Поэтому начнём не с обзора всех инструментов, а с задач твоего бизнеса и одного понятного следующего шага.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Результат -->
+<section id="result">
+  <div class="wrap">
+    <p class="kicker">Что получишь</p>
+    <h2>На выходе план, по которому понятно, что делать в понедельник.</h2>
+    <div class="plan-grid">
+      <div>
+        <p>План внедрения на восемь недель собираем на очной сессии, на твоих задачах. Он отвечает на пять вопросов:</p>
+        <ul class="qlist" style="margin-top:18px">
+          <li>Какую задачу берём первой.</li>
+          <li>Почему именно её.</li>
+          <li>Что нужно для первого шага.</li>
+          <li>Кто в компании участвует.</li>
+          <li>По каким признакам поймём, что получилось.</li>
+        </ul>
+        <p style="margin-top:18px">Сам план не вся ценность. Важнее разбор твоих задач вместе с другими собственниками, мой опыт на живом бизнесе и то, что первые четыре недели ты идёшь по плану не в одиночку.</p>
+      </div>
+      <figure class="sheet">
+        <div class="sheet-head">
+          <strong>План внедрения · первая задача</strong>
+          <span class="stamp">Демонстрационный пример. Не результат участника</span>
+        </div>
+        <table>
+          <tbody>
+            <tr><th scope="row">Задача</th><td>Проверить, может ли ИИ готовить черновик ответа на входящий запрос</td></tr>
+            <tr><th scope="row">Первый шаг</th><td>Собрать небольшой набор обезличенных типовых обращений</td></tr>
+            <tr><th scope="row">Что сравниваем</th><td>Время подготовки, количество исправлений, полноту ответа</td></tr>
+            <tr><th scope="row">Ответственный</th><td>Владелец выбранного процесса</td></tr>
+            <tr><th scope="row">Ограничение</th><td>Ответ проверяет сотрудник, автоматическая отправка не включена</td></tr>
+            <tr><th scope="row">Решение после проверки</th><td>Продолжать, изменить подход или остановить эксперимент</td></tr>
+          </tbody>
+        </table>
+        <figcaption>Пример показывает логику плана. У каждого участника задача своя.</figcaption>
+      </figure>
+    </div>
+
+    <div class="weeks">
+      <p class="weeks-note">8 недель: горизонт плана. Групповая поддержка длится 4 недели.</p>
+      <div class="weeks-bar" aria-hidden="true">
+        <span class="sup">1</span><span class="sup">2</span><span class="sup">3</span><span class="sup">4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+      </div>
+      <p class="weeks-legend"><span><i class="sup"></i>недели 1–4: идёшь по плану с групповой поддержкой</span><span><i></i>недели 5–8: продолжаешь по плану самостоятельно</span></p>
+    </div>
+
+    <div class="plan-more">
+      <details data-track="plan_example_open">
+        <summary>Посмотреть, как этот пример раскладывается на восемь недель</summary>
+        <div class="det-body">
+          <p class="muted small" style="margin-bottom:12px">Демонстрационный пример. Не результат участника и не обещание сроков.</p>
+          <ol>
+            <li><strong>Недели 1–2.</strong> Выбрать один тип обращений. Собрать два-три десятка обезличенных примеров и ответы, которые на них давали.</li>
+            <li><strong>Недели 3–4.</strong> Попросить ИИ подготовить черновики на этих примерах. Сотрудник правит каждый и отмечает, что пришлось исправить.</li>
+            <li><strong>Недели 5–6.</strong> Поменять инструкцию для ИИ по итогам правок. Пробовать на новых обращениях, по-прежнему с проверкой человеком.</li>
+            <li><strong>Недели 7–8.</strong> Сравнить с тем, как было: время, число исправлений, полнота. Решить: продолжать, менять подход или остановить.</li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Доказательства -->
+<section id="cases">
+  <div class="wrap">
+    <p class="kicker">Примеры из JBTools</p>
+    <h2>Сначала в своей компании.</h2>
+    <p class="narrow" style="margin-top:20px">Я развиваю JBTools и использую ИИ в собственных рабочих процессах. Ниже то, с чем работаю сам. Это мой бизнес, а не результаты участников практикума.</p>
+
+    <article class="case-main">
+      <div>
+        <span class="status">Используется в работе</span>
+        <h3>Входящие заявки разбирает система, а не человек</h3>
+        <dl class="steps-dl" style="margin-top:12px">
+          <div><dt>Было</dt><dd>Заявки клиентов приходят на почту. Первичный разбор и квалификацию делали люди: я нанимал для этого ассистента.</dd></div>
+          <div><dt>Что сделано</dt><dd>Система читает входящие письма, отделяет коммерческие заявки и заводит их в CRM: кто клиент, что просит, на какую сумму.</dd></div>
+          <div><dt>Что изменилось</dt><dd>Отдельный человек на первичную квалификацию больше не нужен. Отдел продаж я разделил: двое отвечают на заявки до 70&nbsp;000&nbsp;₽, двое ведут крупные.</dd></div>
+        </dl>
+      </div>
+      <div class="case-side">
+        <blockquote>«Мне перестало быть необходимо нанимать людей, которые квалифицируют предварительно. Теперь это делает автоматизация».
+          <cite>Из подкаста про вайб-кодинг для предпринимателей, где я был гостем</cite>
+        </blockquote>
+        <div class="gap-block">Сюда: настоящий снимок карточки заявки из CRM, обезличенный (без имён, контактов, цен и переписки). Пока снимка нет, раздел работает текстом.</div>
+        <p><a href="https://www.youtube.com/watch?v=m2Qh8SEuPds" data-track="case_open">Послушать, как я рассказываю об этом (YouTube)</a></p>
+      </div>
+    </article>
+
+    <div class="cases-more">
+      <article>
+        <span class="status">Используется в работе</span>
+        <h3>Письма поставщиков с прайсами и остатками</h3>
+        <p>У нас около сотни поставщиков, и каждый присылает прайсы и остатки по-своему, обычно вложением в письме. Система узнаёт, от кого письмо и что во вложении, и разбирает его без ручной перепечатки.</p>
+        <p class="src">Рассказывал в подкасте «Грань».</p>
+      </article>
+      <article>
+        <span class="status">Используется в работе</span>
+        <h3>Ответ клиенту прямо из карточки заявки</h3>
+        <p>В карточке видно наличие у поставщиков и маржу. Оттуда же одной кнопкой собирается письмо клиенту с суммой и всеми полями, менеджеру остаётся проверить и отправить.</p>
+        <p class="src">Рассказывал в подкасте «Грань», показывал вживую на встрече клуба предпринимателей.</p>
+      </article>
+    </div>
+
+    <p class="disclaim">Цифр экономии здесь нет специально: я их не замерял по правилам и не хочу показывать прикидки как результат. На практикуме покажу эти системы вживую и расскажу, где они до сих пор требуют доработки.</p>
+  </div>
+</section>
+
+<!-- 5. Процесс -->
+<section id="format">
+  <div class="wrap">
+    <p class="kicker">Как проходит работа</p>
+    <h2>Разбираться сразу во всём не придётся.</h2>
+    <ol class="flow">
+      <li>
+        <div class="when">До встречи<small>подготовка</small></div>
+        <div>
+          <p>Подготовительные материалы: что поставить, как подключить, какие задачи компании взять с собой на сессию. Пройти их нужно самому, до очной встречи.</p>
+          <p class="small muted" style="margin-top:8px">Обязательный минимум подготовки уточняется. <span class="gap">ждёт решения</span></p>
+        </div>
+      </li>
+      <li>
+        <div class="when">На очной сессии<small>в группе до 10 человек</small></div>
+        <div>
+          <p>Работаем на задачах твоей компании: где ИИ даст пользу, с чего начать, что отложить. Показываю свои решения и как они устроены. К концу у тебя план внедрения на восемь недель.</p>
+          <p class="small muted" style="margin-top:8px">Готовую рабочую систему за одну встречу не обещаю: цель сессии в выборе задачи и плане первого шага. Длительность сессии уточняется. <span class="gap">ждёт решения</span></p>
+        </div>
+      </li>
+      <li>
+        <div class="when">После встречи<small>4 недели</small></div>
+        <div>
+          <p>Четыре недели групповой поддержки: идёшь по своему плану, приносишь вопросы и результаты в группу, разбираем, что получилось и что мешает.</p>
+          <p class="small muted" style="margin-top:8px">Расписание и формат встреч уточняются. <span class="gap">ждёт решения</span></p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="tech">
+      <div>
+        <h3>Про технический вход честно</h3>
+        <p>Для работы понадобятся подписка на ИИ-сервис и несколько установленных программ. Это делается самостоятельно по подготовительным материалам, до встречи. Регистрацию, оплату и настройку за участника я не делаю.</p>
+        <p>Подробный курс у меня тоже есть, и он остаётся справочником. Для практикума достаточно короткого обязательного маршрута.</p>
+      </div>
+      <div>
+        <h3>Что потребуется от тебя</h3>
+        <ul>
+          <li>Прийти лично: решения принимает собственник, поэтому участвуешь сам.</li>
+          <li>Взять с собой реальные задачи компании, в которых готов участвовать.</li>
+          <li>Находить время между встречами, чтобы идти по плану. Без этого поддержка не сработает.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Автор -->
+<section>
+  <div class="wrap author">
+    <div>
+      <p class="kicker">Кто ведёт</p>
+      <h2>Я Алексей. Развиваю свой бизнес и собираю решения для него.</h2>
+      <p>Около десяти лет развиваю JBTools: компания поставляет промышленный инструмент предприятиям. В моей практике около 1&nbsp;500 часов консультаций предпринимателей.</p>
+      <p>ИИ дал мне возможность самому быстро проверять идеи и делать инструменты для своей компании, хотя по первой профессии я инженер, а не программист. На практикуме опираюсь на этот опыт: разбираю задачи бизнеса, показываю свои решения и объясняю, где подход ещё требует доработки.</p>
+    </div>
+    <div>
+      <p class="small muted" style="margin-bottom:12px">Послушать, как я рассуждаю, можно заранее:</p>
+      <ul class="videos">
+        <li><a href="https://www.youtube.com/watch?v=m2Qh8SEuPds"><strong>Вайб-кодинг для предпринимателей</strong><span>Подкаст, я в гостях · YouTube</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=5QWl970FvPo"><strong>Подкаст «Грань»</strong><span>Разговор с Алексеем Скакуном о моём бизнесе и пути · YouTube</span></a></li>
+        <li><a href="https://www.youtube.com/@peregovornayakomnata"><strong>Мой YouTube-канал</strong><span>youtube.com/@peregovornayakomnata</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Условия -->
+<section id="terms">
+  <div class="wrap">
+    <p class="kicker">Условия</p>
+    <h2>Первый поток: до 10 предпринимателей.</h2>
+    <div class="offer">
+      <div>
+        <p class="price-big">100&nbsp;000&nbsp;₽</p>
+        <p class="price-note">за участника, первый поток</p>
+        <a class="btn" href="https://t.me/alexkukhnikov" data-cta="terms">Обсудить участие</a>
+        <p class="when-line">Дата и место очной встречи уточняются.</p>
+        <p class="small muted" style="margin-top:8px">Способ оплаты и условия возврата уточняются. <span class="gap">ждёт решения</span></p>
+      </div>
+      <div>
+        <div class="block">
+          <h3>Входит</h3>
+          <ul>
+            <li>Подготовительные материалы</li>
+            <li>Очная рабочая сессия</li>
+            <li>План внедрения на восемь недель</li>
+            <li>Четыре недели групповой поддержки</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3>Оплачивается отдельно</h3>
+          <ul>
+            <li>Подписки на ИИ-сервисы и другие сервисы, если понадобятся</li>
+            <li>Инфраструктура под твои задачи, если понадобится</li>
+            <li>Дорога до места встречи</li>
+          </ul>
+          <p class="small muted" style="margin-top:8px">Размер этих расходов зависит от задач. Обсудим его до решения об участии.</p>
+        </div>
+        <div class="block">
+          <h3>От тебя</h3>
+          <p>Личное участие и работа между встречами. Сколько часов в неделю, зависит от выбранной задачи.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fit">
+      <div>
+        <h3>Подойдёт</h3>
+        <p>Собственнику действующего бизнеса, у которого есть задачи, где он сам готов участвовать и принимать решения.</p>
+      </div>
+      <div>
+        <h3>Не подойдёт</h3>
+        <p>Тому, кто ищет внедрение под ключ без своего участия или гарантированный финансовый результат.</p>
+      </div>
+    </div>
+
+    <p class="nopromise muted">Чего не обещаю: внедрения под ключ, разработки любой системы, гарантированной экономии, окупаемости или замены сотрудников. Это первый поток, поэтому отзывов участников пока нет.</p>
+  </div>
+</section>
+
+<!-- 8. Вопросы и приглашение -->
+<section id="faq">
+  <div class="wrap">
+    <h2>Вопросы</h2>
+    <div class="faq">
+      <details>
+        <summary>Нужны ли технические навыки и что обязательно сделать до встречи?</summary>
+        <div class="det-body">
+          <p>Навыки программиста не нужны: я сам по первой профессии инженер и строю свои системы, работая с ИИ. До встречи нужно оформить подписку на ИИ-сервис и поставить программы по подготовительным материалам, это делается самостоятельно.</p>
+          <p>Точный обязательный минимум пришлю вместе с материалами. <span class="gap">ждёт решения: что входит в минимум</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Чем это отличается от самостоятельного прохождения курса?</summary>
+        <div class="det-body">
+          <p>Курс объясняет инструменты по порядку, и его удобно проходить в своём темпе. Практикум про другое: разбираем задачи именно твоей компании, вместе выбираем первую, ты уходишь с планом и четыре недели идёшь по нему в группе. Это групповой формат, не индивидуальный консалтинг.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Что входит в четыре недели поддержки?</summary>
+        <div class="det-body">
+          <p>Групповая поддержка: участники идут по своим планам и разбирают вопросы и результаты в группе. Индивидуальную разработку под задачу участника она не включает.</p>
+          <p>Расписание встреч, их длительность и порядок вопросов между встречами уточняются. <span class="gap">ждёт решения</span></p>
+        </div>
+      </details>
+      <details>
+        <summary>Какие расходы могут быть кроме участия?</summary>
+        <div class="det-body">
+          <p>Подписки на ИИ-сервисы и другие сервисы, иногда инфраструктура под задачу, плюс дорога до места встречи. В стоимость участия они не входят. Сколько это будет у тебя, зависит от задач, обсудим до решения об участии.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Будет ли Алексей внедрять всё вместо участника?</summary>
+        <div class="det-body">
+          <p>Нет. На практикуме ты выбираешь задачу и начинаешь двигаться сам или с командой, я помогаю разобраться и не дать застрять. Внедрение под ключ в компании это отдельная работа, она в практикум не входит.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Обсудим твою задачу и поймём, подходит ли тебе этот формат.</h2>
+    <p class="next">По кнопке откроется мой Telegram. Напиши пару строк: чем занимается бизнес и какую задачу хочешь разобрать. Дальше договоримся о коротком разговоре.</p>
+    <div class="actions">
+      <a class="btn" href="https://t.me/alexkukhnikov" data-cta="final">Обсудить участие</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="who">Алексей Кухников · практикум для собственников бизнеса</span>
+    <a href="https://t.me/troubleshooterpro">Telegram-канал</a>
+    <a href="https://www.youtube.com/@peregovornayakomnata">YouTube</a>
+    <a href="https://www.instagram.com/troubleshooterpro">Instagram</a>
+  </div>
+</footer>
+</body>
+</html>
