@@ -32,7 +32,7 @@ b,strong{font-weight:600}
 .top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0 20px;border-bottom:1px solid var(--line)}
 .top img{height:40px;display:block}
 .top span{font-size:14px;color:var(--grey);text-align:right}
-.note{border-left:3px solid var(--red);padding:2px 0 2px 22px;margin:34px 0 0;max-width:680px;font-size:16px;line-height:1.62;color:#3a3833}
+.note{border-left:3px solid var(--red);padding:2px 0 2px 22px;margin:34px 0;max-width:680px;font-size:16px;line-height:1.62;color:#3a3833}
 .note>b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}
 .nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin:46px 0 0}
 .nums div{padding:22px 24px 20px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
