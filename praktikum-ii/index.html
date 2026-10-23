@@ -125,6 +125,11 @@ ul.minus li::before { content: ""; position: absolute; left: 0; top: .72em; widt
 .tbl tr:last-child td { border-bottom: 0; }
 .demo-foot { padding: 16px 26px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--ink); background: var(--bg); }
 
+.gained { margin-top: 56px; display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding-top: 22px; border-top: 2px solid var(--ink); }
+.gained > b { font-family: var(--serif); font-size: 22px; line-height: 1.3; }
+.gained .intro { color: var(--muted); font-size: 16px; margin-bottom: 14px; }
+.gained ul.check li { margin-bottom: 10px; }
+.gained ul.check b { font-weight: 700; }
 .nopromise { margin-top: 40px; display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding-top: 22px; border-top: 2px solid var(--accent); }
 .nopromise b { font-family: var(--serif); font-size: 22px; }
 .nopromise p { color: var(--ink-2); }
@@ -267,7 +272,7 @@ footer { padding: 28px 0; font-size: 14px; color: #8c877d; background: var(--ink
   .host { grid-template-columns: 1fr; }
   .host .clip { max-width: 260px; }
   .fact { grid-template-columns: 1fr; gap: 6px; }
-  .nopromise { grid-template-columns: 1fr; gap: 8px; }
+  .nopromise, .gained { grid-template-columns: 1fr; gap: 8px; }
   .stage-shots { gap: 14px; }
   form { padding: 22px; }
   .btn { width: 100%; text-align: center; }
@@ -464,7 +469,20 @@ footer { padding: 28px 0; font-size: 14px; color: #8c877d; background: var(--ink
       <div class="demo-foot">Пример придуман для показа структуры. Это не клиентский кейс. Задачи в твоём плане будут другими: их выбираем на сессии по твоим данным.</div>
     </div>
 
-    <div class="nopromise">
+    <div class="gained">
+      <b>Что ИИ уже дал бизнесу ведущего</b>
+      <div>
+        <p class="intro">Это не обещание тебе, а то, что получилось в его собственной компании.</p>
+        <ul class="check">
+          <li>Одна должность больше не нужна: её работу ведёт система агентов.</li>
+          <li>Доработки 1С и часы программистов, и по коду, и по 1С, больше не покупаются на стороне.</li>
+          <li>Продвижение сайтов в поиске идёт своими силами. С апреля заявок стало <b>в 2 раза больше</b>.</li>
+          <li>Следующий шаг: отказ от юридической подписки за <b>120 000 ₽ в год</b>.</li>
+        </ul><span class="tbd">цифры и формулировки проверить</span>
+      </div>
+    </div>
+
+    <div class="nopromise" style="margin-top:32px">
       <b>Чего мы не обещаем</b>
       <p>Рост прибыли, окупаемость к сроку, сокращение сотрудников, автоматизацию всех процессов и подключение любой системы. Это зависит от бизнеса, команды и того, как план будут выполнять после встречи. Обещаем ясность, приоритеты и план, по которому можно идти.</p>
     </div>
