@@ -4,8 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>ИИ для своего бизнеса. Практикум Алексея Кухникова</title>
-<meta name="description" content="Практикум для собственников: работа с материалами твоей компании, первый проверяемый результат и четыре недели групповых разборов. До 10 участников, очный день, 100 000 ₽.">
+<title>Стратегическая сессия для собственников: что изменить в бизнесе с ИИ. Алексей Кухников</title>
+<meta name="description" content="Стратегическая сессия для собственников: разбираем устройство компании, ищем возможности, выбираем приоритеты и собираем карту изменений на ближайшие месяцы. Неделя подготовки, очный день, 4 недели групповых разборов. До 10 участников, 100 000 ₽.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://kuhnikov-jbt.github.io/avtomatizacia-kurs/praktikum-iii/">
+<meta property="og:title" content="Что можно изменить в твоём бизнесе с ИИ. И с чего начать">
+<meta property="og:description" content="Стратегическая сессия для собственников с Алексеем Кухниковым: возможности, приоритеты и маршрут изменений компании. До 10 участников, 100 000 ₽.">
 <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face { font-family: "Manrope"; font-weight: 400 800; font-display: swap; src: url("fonts/manrope-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
@@ -34,16 +39,18 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1px; 
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 4px; }
 h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; }
-h2 { font-size: clamp(30px, 4.2vw, 52px); }
+h2 { font-size: clamp(30px, 4vw, 50px); }
 h3 { font-size: 22px; line-height: 1.25; letter-spacing: -0.01em; }
 p + p { margin-top: 0.8em; }
-ul { list-style: none; }
+ul, ol { list-style: none; }
+[id] { scroll-margin-top: 16px; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
 .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
 .label { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .skip { position: absolute; left: -9999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; z-index: 10; }
 .skip:focus { left: 8px; }
+.section-lead { margin-top: 24px; font-size: 20px; line-height: 1.55; max-width: 36em; }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 30px; background: var(--red-ink); color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; border-radius: 6px; transition: background .15s; }
 .btn:hover { background: #941710; }
@@ -59,79 +66,109 @@ ul { list-style: none; }
 .nav a:hover { color: var(--ink); }
 
 /* 1. обложка */
-.hero { padding: 40px 0 96px; }
-.hero .grid { align-items: end; }
-.hero-text { grid-column: 1 / span 8; padding-bottom: 8px; }
-.hero h1 { font-size: clamp(42px, 6vw, 84px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; margin: 22px 0 30px; max-width: 12ch; }
-.hero .lead { font-size: 21px; line-height: 1.5; max-width: 33em; }
-.terms-line { margin-top: 30px; font-size: 18px; font-weight: 600; display: flex; flex-wrap: wrap; gap: 6px 0; }
-.terms-line span:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--muted); font-weight: 400; }
+.hero { padding: 48px 0 104px; }
+.hero .grid { align-items: center; }
+.hero-text { grid-column: 1 / span 7; }
+.hero h1 { font-size: clamp(40px, 5.2vw, 70px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.03; margin: 22px 0 28px; }
+.hero h1 span { color: var(--muted); }
+.hero .lead { font-size: 21px; line-height: 1.5; max-width: 31em; }
+.format { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 17px; color: var(--muted); }
+.format b { display: block; margin-top: 4px; color: var(--ink); font-weight: 700; }
+.dot { margin: 0 10px; }
 .actions { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; }
-.portrait { grid-column: 10 / span 3; align-self: end; padding-bottom: 14px; }
-.portrait img { width: 176px; height: 176px; border-radius: 50%; object-fit: cover; }
-.portrait figcaption { margin-top: 20px; font-size: 16px; line-height: 1.5; color: var(--muted); }
-.portrait figcaption b { display: block; color: var(--ink); font-size: 18px; font-weight: 700; }
+.no-idea { margin-top: 18px; font-size: 17px; color: var(--muted); }
+.no-idea::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); margin-right: 10px; vertical-align: 2px; }
+.portrait { grid-column: 9 / span 4; justify-self: center; text-align: center; }
+.portrait img { width: min(100%, 372px); aspect-ratio: 1; border-radius: 50%; object-fit: cover; margin: 0 auto; }
+.portrait figcaption { margin-top: 22px; font-size: 16px; color: var(--muted); }
+.portrait figcaption b { color: var(--ink); font-weight: 700; }
 
 /* 2. узнавание */
-.recog { padding: 72px 0 88px; border-top: 1px solid var(--line); }
-.recog h2 { grid-column: 1 / span 5; font-size: clamp(28px, 3.2vw, 40px); }
-.recog-body { grid-column: 7 / span 6; }
-.recog-body li { padding-left: 34px; position: relative; font-size: 19px; }
-.recog-body li + li { margin-top: 14px; }
-.recog-body li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 18px; height: 2px; background: var(--ink); }
-.recog .turn { margin-top: 34px; font-size: 24px; font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; }
+.recog { padding: 88px 0 96px; border-top: 1px solid var(--line); }
+.recog h2 { max-width: 19ch; }
+.situations { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.situations li { padding-top: 20px; border-top: 2px solid var(--ink); font-size: 19px; line-height: 1.5; }
+.situations li b { display: block; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+.recog .turn { margin-top: 56px; max-width: 30em; font-size: clamp(22px, 2.2vw, 28px); font-weight: 600; line-height: 1.35; letter-spacing: -0.015em; }
+.recog .turn b { font-weight: 700; color: var(--red-ink); }
 
-/* 3. демонстрация */
-.demo { background: var(--graphite); color: var(--on-dark); padding: 96px 0 104px; }
+/* 3. возможности и кейс */
+.demo { background: var(--graphite); color: var(--on-dark); padding: 104px 0; }
 .demo .label { color: var(--on-dark-muted); }
-.demo .status::before { content: ""; display: inline-block; vertical-align: 1px; margin-right: 10px; width: 9px; height: 9px; border-radius: 50%; background: #3FB950; }
-.demo-head { grid-column: 1 / span 8; }
-.demo h2 { margin-top: 18px; max-width: 18ch; }
-.demo-setup { grid-column: 1 / span 7; margin-top: 24px; color: var(--on-dark-muted); font-size: 19px; }
-.shot { margin-top: 56px; }
-.shot-scroll { border-radius: 8px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
-.shot-inner { position: relative; }
+.demo h2 { max-width: 17ch; }
+.demo .section-lead { color: var(--on-dark-muted); max-width: 40em; }
+.demo .section-lead b { color: var(--on-dark); font-weight: 600; }
+.case-head { margin-top: 80px; padding-top: 32px; border-top: 1px solid #333; }
+.status::before { content: ""; display: inline-block; vertical-align: 1px; margin-right: 10px; width: 9px; height: 9px; border-radius: 50%; background: #3FB950; }
+.case-head h3 { margin-top: 14px; font-size: clamp(26px, 2.8vw, 36px); line-height: 1.15; letter-spacing: -0.02em; max-width: 24ch; }
+.shot { margin-top: 40px; }
+.shot-full { border-radius: 8px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.45); overflow: hidden; }
 .shot-part { position: relative; }
-.shot-cut { display: flex; align-items: center; gap: 14px; padding: 6px 28px; font-size: 14px; color: #8A8A84; background: #fff; }
+.shot-cut { display: flex; align-items: center; gap: 14px; padding: 6px 28px; font-size: 14px; color: #6E6E68; background: #fff; }
 .shot-cut::before, .shot-cut::after { content: ""; flex: 1; border-top: 1px dashed #CFCFC8; }
 .pin { position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; background: var(--red); color: #fff; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(224,38,28,.25); }
-.shot-hint { display: none; }
-.notes { margin-top: 48px; row-gap: 32px; }
-.notes > div { grid-column: span 4; }
-.notes h3 { font-size: 18px; margin-bottom: 12px; color: #fff; }
-.notes p, .notes li { font-size: 17px; color: var(--on-dark-muted); line-height: 1.55; }
-.notes ol { list-style: none; counter-reset: n; }
-.notes ol li { counter-increment: n; position: relative; padding-left: 34px; }
-.notes ol li + li { margin-top: 10px; }
-.notes ol li::before { content: counter(n); position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: var(--red); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
-.demo-bridge { margin-top: 56px; padding-top: 32px; border-top: 1px solid #333; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px 40px; align-items: baseline; }
-.demo-bridge p { font-size: 21px; font-weight: 600; color: #fff; max-width: 40em; line-height: 1.45; }
-.demo-bridge a { color: var(--on-dark); font-size: 17px; }
+.shot-crops { display: none; }
+.shot-open { margin-top: 14px; font-size: 15px; color: var(--on-dark-muted); }
+.shot-open a { color: var(--on-dark); }
+.case-steps { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 28px; }
+.case-steps li { padding-top: 18px; border-top: 2px solid #3A3A3A; }
+.case-steps li:nth-child(n+3) { border-top-color: var(--red); }
+.case-steps h4 { font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; margin-bottom: 10px; }
+.case-steps p { font-size: 17px; line-height: 1.55; color: var(--on-dark-muted); }
+.n { display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: var(--red); color: #fff; font-size: 11px; font-weight: 800; align-items: center; justify-content: center; vertical-align: 2px; margin: 0 2px; }
+.case-foot { margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 40px; font-size: 15px; color: var(--on-dark-muted); }
+.case-foot a { color: var(--on-dark); font-size: 17px; }
+.extra { margin-top: 72px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; padding: 36px 0 0; border-top: 1px solid #333; }
+.extra .label { grid-column: 1 / span 4; padding-top: 6px; }
+.extra-body { grid-column: 5 / span 8; }
+.extra-body h3 { font-size: 24px; color: #fff; }
+.extra-body p { margin-top: 12px; color: var(--on-dark-muted); font-size: 18px; }
 
-/* 4. цикл и программа */
-.program { padding: 112px 0 96px; }
-.program h2 { max-width: 16ch; }
-.cycle { margin-top: 48px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 24px; list-style: none; counter-reset: c; font-size: clamp(20px, 2vw, 27px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
-.cycle li { counter-increment: c; position: relative; padding-top: 18px; border-top: 2px solid var(--ink); }
-.cycle li::before { content: "0" counter(c); display: block; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 10px; }
-.cycle li:not(:last-child)::after { content: "→"; position: absolute; right: -2px; top: 14px; color: var(--red); font-size: 22px; font-weight: 600; }
-.cycle li:first-child { border-top-color: var(--red); }
-.keep { margin-top: 64px; row-gap: 28px; }
-.keep .label { grid-column: 1 / span 3; padding-top: 4px; }
-.keep ul { grid-column: 4 / span 9; display: grid; grid-template-columns: 1fr 1fr; gap: 22px 40px; }
-.keep li { font-size: 18px; line-height: 1.5; padding-top: 16px; border-top: 2px solid var(--ink); }
-.keep li b { display: block; font-size: 19px; margin-bottom: 4px; }
-.stages { margin-top: 88px; align-items: stretch; }
-.stage { padding: 30px 28px 32px; border-radius: 6px; }
-.stage .when { font-size: 15px; font-weight: 600; color: var(--muted); }
-.stage h3 { margin: 8px 0 14px; font-size: 26px; }
+/* 4. карта изменений */
+.map { padding: 112px 0 104px; }
+.map h2 { max-width: 16ch; }
+.map-body { margin-top: 56px; align-items: start; }
+.parts { grid-column: 1 / span 4; counter-reset: p; }
+.parts li { counter-increment: p; position: relative; padding: 0 0 22px 44px; }
+.parts li + li { padding-top: 22px; border-top: 1px solid var(--line); }
+.parts li::before { content: counter(p); position: absolute; left: 0; font-size: 26px; font-weight: 800; line-height: 1.1; color: var(--red-ink); }
+.parts li + li::before { top: 22px; }
+.parts b { display: block; font-size: 20px; line-height: 1.3; margin-bottom: 4px; }
+.parts span { display: block; font-size: 17px; line-height: 1.5; color: var(--muted); }
+.doc { grid-column: 6 / span 7; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 18px 50px rgba(22,22,22,.08); padding: 28px 32px 32px; }
+.doc-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 20px; padding-bottom: 16px; border-bottom: 2px solid var(--ink); }
+.doc-head p { font-weight: 700; font-size: 18px; }
+.demo-tag { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--red-ink); border: 1px solid var(--red-ink); border-radius: 4px; padding: 3px 8px; }
+.doc h3 { margin-top: 24px; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.doc table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 16px; line-height: 1.45; }
+.doc th { text-align: left; font-size: 13px; font-weight: 600; color: var(--muted); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); vertical-align: bottom; }
+.doc td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc td:first-child { font-weight: 700; width: 22%; }
+.chain { margin-top: 12px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; counter-reset: s; }
+.chain li { position: relative; background: var(--bg); border-radius: 4px; padding: 12px 12px; font-size: 15px; line-height: 1.4; }
+.chain li span { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.chain li:not(:last-child)::after { content: "→"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 18px; text-align: center; color: var(--red); font-weight: 700; font-size: 14px; }
+.horizon { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 2px solid var(--ink); }
+.horizon > div { padding: 24px 32px 0 0; }
+.horizon > div + div { padding-left: 32px; border-left: 1px dashed #B9B9B2; }
+.horizon h3 { font-size: 24px; }
+.horizon .when { font-size: 15px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+.horizon p:not(.when) { margin-top: 10px; font-size: 18px; }
+.map details { margin-top: 40px; }
+
+/* 5. процесс */
+.program { padding: 104px 0; background: var(--paper); }
+.program h2 { max-width: 22ch; }
+.program h2 span { display: block; }
+.stages { margin-top: 56px; display: grid; grid-template-columns: 4fr 5fr 4fr; gap: 0; }
+.stage { padding: 0 28px 0 0; }
+.stage + .stage { padding-left: 28px; border-left: 1px solid var(--line); }
+.stage .when { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; background: #EBEBE6; }
+.stage-2 .when { background: var(--ink); color: #fff; }
+.stage h3 { margin: 16px 0 12px; font-size: 26px; }
 .stage p { font-size: 17px; line-height: 1.55; }
-.stage-1 { grid-column: 1 / span 4; background: #EBEBE6; }
-.stage-2 { grid-column: 5 / span 4; background: var(--paper); box-shadow: 0 0 0 2px var(--ink) inset; }
-.stage-3 { grid-column: 9 / span 4; background: #EBEBE6; }
-.stage-2 .when { color: var(--red-ink); }
-.tasks { margin-top: 16px; font-size: 16px !important; color: var(--muted); }
-.disclosures { margin-top: 40px; }
+.stage .note { margin-top: 12px; font-size: 16px; color: var(--muted); }
+.disclosures { margin-top: 56px; }
 details { border-top: 1px solid var(--line); }
 details:last-child { border-bottom: 1px solid var(--line); }
 summary { cursor: pointer; list-style: none; padding: 22px 48px 22px 0; position: relative; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
@@ -139,53 +176,54 @@ summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 30px; font-weight: 400; line-height: 1; }
 details[open] summary::after { content: "−"; }
 .disclosure-body { padding: 0 0 30px; max-width: 900px; font-size: 18px; }
-.day { display: grid; grid-template-columns: 110px 1fr; gap: 6px 24px; }
-.day dt { font-weight: 700; font-variant-numeric: tabular-nums; }
-.day dd { color: var(--muted); }
-.day dd b { color: var(--ink); font-weight: 700; display: block; }
-.day dt:not(:first-child), .day dt:not(:first-child) + dd { margin-top: 14px; }
-.day + p, .weeks + p { margin-top: 20px; font-size: 16px; color: var(--muted); }
-.weeks li { display: grid; grid-template-columns: 110px 1fr; gap: 24px; }
-.weeks li + li { margin-top: 12px; }
-.weeks li span { font-weight: 700; }
+.disclosure-body h4 { font-size: 17px; margin: 20px 0 8px; }
+.disclosure-body h4:first-child { margin-top: 0; }
+.dash li { position: relative; padding-left: 24px; }
+.dash li + li { margin-top: 6px; }
+.dash li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 10px; height: 2px; background: var(--ink); }
+.steps { counter-reset: st; }
+.steps li { counter-increment: st; display: grid; grid-template-columns: 40px 1fr; }
+.steps li + li { margin-top: 10px; }
+.steps li::before { content: counter(st); font-weight: 800; color: var(--red-ink); }
+.disclosure-body .aside { margin-top: 18px; font-size: 16px; color: var(--muted); }
 
-/* 5. автор */
-.author { background: var(--paper); padding: 104px 0; }
-.author .label { grid-column: 1 / span 3; padding-top: 10px; }
-.author-text { grid-column: 4 / span 8; }
-.author-text .big { font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; line-height: 1.35; letter-spacing: -0.015em; }
-.author-text .big + .big { margin-top: 0.7em; }
-.facts { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 20px 56px; }
-.facts li b { color: var(--ink); display: block; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
-.facts li { font-size: 16px; color: var(--muted); }
-.listen { margin-top: 40px; font-size: 16px; color: var(--muted); }
+/* 6. автор */
+.author { padding: 112px 0; }
+.author-side { grid-column: 1 / span 5; }
+.author h2 { font-size: clamp(28px, 3.2vw, 40px); }
+.author-text { grid-column: 7 / span 6; }
+.author-text .big { font-size: clamp(20px, 1.8vw, 23px); line-height: 1.5; }
+.facts { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 16px; color: var(--muted); }
+.facts li + li { margin-top: 6px; }
+.facts b { color: var(--ink); }
+.listen { margin-top: 24px; font-size: 16px; color: var(--muted); }
 .listen a { color: var(--ink); margin-right: 22px; display: inline-block; }
 
-/* 6. условия */
-.terms { padding: 112px 0 104px; }
-.terms h2 { margin-bottom: 48px; }
-.price { grid-column: 1 / span 5; background: var(--graphite); color: var(--on-dark); border-radius: 6px; padding: 40px 36px; display: flex; flex-direction: column; gap: 22px; align-self: start; }
+/* 7. условия */
+.terms { padding: 0 0 112px; }
+.terms-box { background: var(--paper); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 5fr 7fr; }
+.price { background: var(--graphite); color: var(--on-dark); padding: 48px 40px; display: flex; flex-direction: column; gap: 18px; }
+.price .label { color: var(--on-dark-muted); }
 .price .sum { font-size: clamp(48px, 5vw, 68px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
-.price .per { color: var(--on-dark-muted); font-size: 17px; margin-top: -10px; }
-.price .when { font-size: 18px; line-height: 1.5; }
+.price .per { color: var(--on-dark-muted); font-size: 17px; margin-top: -6px; }
+.price .when { font-size: 17px; line-height: 1.5; margin-top: 10px; }
 .price .btn { align-self: flex-start; }
-.terms-body { grid-column: 7 / span 6; }
+.terms-body { padding: 48px 48px 44px; }
 .terms-body h3 { font-size: 19px; margin-bottom: 10px; }
-.terms-body ul li { position: relative; padding-left: 24px; font-size: 18px; }
-.terms-body ul li + li { margin-top: 6px; }
-.terms-body ul li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 10px; height: 2px; background: var(--ink); }
-.terms-body section + section { margin-top: 32px; }
-.bounds { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 17px; }
+.terms-body section + section { margin-top: 28px; }
+.terms-body li, .terms-body p { font-size: 18px; }
+.terms-body .small { font-size: 16px; color: var(--muted); }
 
-/* 7. вопросы и финал */
-.faq { padding: 0 0 104px; }
+/* 8. вопросы и финал */
+.faq { padding: 0 0 112px; }
 .faq h2 { grid-column: 1 / span 4; font-size: clamp(28px, 3vw, 40px); }
 .faq-list { grid-column: 6 / span 7; }
 .faq .disclosure-body { font-size: 18px; color: var(--muted); }
 .final { background: var(--graphite); color: var(--on-dark); padding: 104px 0; }
 .final h2 { max-width: 20ch; }
-.final p { margin-top: 18px; color: var(--on-dark-muted); font-size: 17px; }
+.final .sub { margin-top: 20px; font-size: 21px; color: var(--on-dark); }
 .final .btn { margin-top: 36px; }
+.final .contact { margin-top: 18px; color: var(--on-dark-muted); font-size: 17px; }
 footer { background: var(--graphite); color: var(--on-dark-muted); font-size: 15px; padding: 28px 0 36px; border-top: 1px solid #2B2B2B; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; }
 footer .who { margin-right: auto; }
@@ -193,26 +231,39 @@ footer a { color: var(--on-dark); }
 
 /* планшет */
 @media (max-width: 1080px) {
-  .recog h2 { grid-column: 1 / -1; margin-bottom: 28px; }
-  .recog-body { grid-column: 1 / -1; max-width: 720px; }
-  .stage-1, .stage-2, .stage-3 { grid-column: 1 / -1; }
-  .stages { row-gap: 16px; }
-  .notes > div { grid-column: 1 / -1; max-width: 720px; }
-  .price, .terms-body { grid-column: 1 / -1; }
-  .terms-body { margin-top: 40px; }
+  .case-steps { grid-template-columns: 1fr 1fr; }
+  .extra .label, .extra-body { grid-column: 1 / -1; }
+  .extra .label { margin-bottom: 14px; }
+  .parts, .doc { grid-column: 1 / -1; }
+  .parts { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; margin-bottom: 40px; }
+  .parts li, .parts li + li { padding: 20px 0 20px 44px; border-top: 1px solid var(--line); }
+  .parts li::before, .parts li + li::before { top: 20px; }
+  .stages { grid-template-columns: 1fr; }
+  .stage, .stage + .stage { padding: 28px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .stage:first-child { border-top: 0; padding-top: 0; }
+  .author-side, .author-text { grid-column: 1 / -1; }
+  .author h2 { max-width: 20ch; }
+  .author-side { display: contents; }
+  .author-side h2 { order: 1; margin-bottom: 28px; }
+  .author-text { order: 2; }
+  .author-side .facts { order: 3; }
+  .author-side .listen { order: 4; }
+  .author .grid { display: flex; flex-direction: column; }
+  .terms-box { grid-template-columns: 1fr; }
   .faq h2 { grid-column: 1 / -1; margin-bottom: 20px; }
   .faq-list { grid-column: 1 / -1; }
-  .author .label, .keep .label { grid-column: 1 / -1; margin-bottom: 18px; }
-  .author-text, .keep ul { grid-column: 1 / -1; }
 }
 @media (max-width: 860px) {
   .hero { padding: 16px 0 72px; }
   .hero-text, .portrait { grid-column: 1 / -1; }
-  .portrait { margin-top: 44px; display: flex; align-items: center; gap: 20px; padding: 0; }
-  .portrait img { width: 96px; height: 96px; flex: none; }
+  .portrait { justify-self: start; display: flex; align-items: center; gap: 20px; margin-top: 44px; text-align: left; }
+  .portrait img { width: 112px; flex: none; margin: 0; }
   .portrait figcaption { margin: 0; }
-  .hero h1 { font-size: 64px; }
-  .demo-head, .demo-setup { grid-column: 1 / -1; }
+  .portrait figcaption b { display: block; }
+  .portrait .sep { display: none; }
+  .situations { grid-template-columns: 1fr; gap: 24px; }
+  .chain { grid-template-columns: 1fr 1fr; gap: 10px 20px; }
+  .chain li:nth-child(2)::after { content: none; }
 }
 /* телефон */
 @media (max-width: 640px) {
@@ -222,45 +273,65 @@ footer a { color: var(--on-dark); }
   .top { padding: 16px 0; }
   .nav { gap: 20px; }
   .nav a:not(:last-child) { display: none; }
-  .hero h1 { font-size: 42px; margin: 16px 0 22px; }
-  .hero .lead { font-size: 19px; }
-  .terms-line { margin-top: 22px; font-size: 17px; }
-  .terms-line span:nth-child(2)::after { content: none; }
-  .terms-line span:last-child { flex-basis: 100%; margin-top: 4px; font-size: 22px; font-weight: 700; }
-  .actions { margin-top: 24px; gap: 18px; }
+  .hero h1 { font-size: 36px; margin: 14px 0 18px; }
+  .hero .lead { font-size: 18px; }
+  .format { margin-top: 22px; font-size: 16px; }
+  .format .dot { margin: 0 6px; }
+  .format b { margin-top: 6px; }
+  .actions { margin-top: 24px; gap: 16px; }
   .actions .btn { width: 100%; }
-  .portrait { margin-top: 32px; }
-  .portrait img { width: 80px; height: 80px; }
-  .recog { padding: 56px 0 64px; }
-  .recog .turn { font-size: 21px; }
+  .portrait { margin-top: 36px; }
+  .portrait img { width: 88px; }
+  .section-lead { font-size: 18px; }
+  .recog { padding: 64px 0 72px; }
+  .situations { margin-top: 32px; }
+  .situations li { font-size: 18px; }
+  .recog .turn { margin-top: 40px; font-size: 21px; }
   .demo { padding: 72px 0 80px; }
-  .shot { margin: 36px calc(var(--gut) * -1) 0; }
-  .shot-scroll { overflow-x: auto; border-radius: 0; -webkit-overflow-scrolling: touch; }
-  .shot-inner { width: 900px; }
-  .shot-hint { display: block; margin: 12px var(--gut) 0; font-size: 15px; color: var(--on-dark-muted); }
-  .notes { margin-top: 40px; }
-  .demo-bridge p { font-size: 19px; }
-  .program { padding: 80px 0 72px; }
-  .cycle { grid-template-columns: 1fr; font-size: 24px; }
-  .cycle li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-top-width: 1px; }
-  .cycle li::before { margin: 0; }
-  .cycle li:not(:last-child)::after { content: "↓"; right: 0; top: 14px; font-size: 20px; }
-  .keep { margin-top: 48px; }
-  .keep ul { grid-template-columns: 1fr; gap: 18px; }
-  .stages { margin-top: 56px; }
-  .stage { padding: 24px 22px 26px; }
+  .case-head { margin-top: 56px; }
+  .case-head h3 { font-size: 24px; }
+  .shot { margin-top: 28px; }
+  .shot-full { display: none; }
+  .shot-crops { display: block; }
+  .shot-crops li { background: #fff; border-radius: 6px; padding: 12px 12px 14px; }
+  .shot-crops li + li { margin-top: 12px; }
+  .shot-crops img { width: 100%; }
+  .shot-crops img.natural { width: 230px; }
+  .shot-crops p { margin-top: 10px; color: var(--ink); font-size: 15px; line-height: 1.45; display: flex; gap: 10px; align-items: flex-start; }
+  .shot-crops .n { flex: none; margin: 1px 0 0; }
+  .case-steps { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
+  .case-foot { flex-direction: column; }
+  .extra { margin-top: 56px; }
+  .map { padding: 80px 0 72px; }
+  .map-body { margin-top: 36px; }
+  .parts { grid-template-columns: 1fr; margin-bottom: 32px; }
+  .doc { margin: 0 calc(var(--gut) * -1); border-radius: 0; border-left: 0; border-right: 0; padding: 24px var(--gut) 28px; }
+  .doc thead { display: none; }
+  .doc table, .doc tbody, .doc tr, .doc td { display: block; width: auto; }
+  .doc tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .doc td, .doc td:first-child { width: auto; padding: 0; border: 0; }
+  .doc td + td { margin-top: 8px; }
+  .doc td[data-label]::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .doc td:first-child { font-size: 18px; }
+  .chain { grid-template-columns: 1fr; gap: 18px; }
+  .chain li:not(:last-child)::after, .chain li:nth-child(2)::after { content: "↓"; right: auto; left: 14px; top: auto; bottom: -18px; transform: none; }
+  .horizon { grid-template-columns: 1fr; margin-top: 48px; }
+  .horizon > div, .horizon > div + div { padding: 20px 0 0; border-left: 0; }
+  .horizon > div + div { margin-top: 24px; border-top: 1px dashed #B9B9B2; }
+  .program { padding: 72px 0; }
+  .stages { margin-top: 36px; }
   summary { font-size: 18px; }
-  .day, .weeks li { grid-template-columns: 1fr; gap: 2px; }
-  .weeks li + li { margin-top: 14px; }
+  .steps li { grid-template-columns: 28px 1fr; }
   .author { padding: 72px 0; }
-  .facts { gap: 18px 36px; }
-  .facts li b { font-size: 26px; }
-  .terms { padding: 80px 0 72px; }
-  .terms h2 { margin-bottom: 32px; }
-  .price { padding: 30px 24px; }
+  .terms { padding-bottom: 72px; }
+  .terms .wrap { padding: 0; }
+  .terms-box { border-radius: 0; }
+  .price { padding: 36px var(--gut); }
   .price .btn { align-self: stretch; }
+  .terms-body { padding: 32px var(--gut) 36px; }
   .faq { padding-bottom: 72px; }
   .final { padding: 72px 0; }
+  .final .sub { font-size: 19px; }
   .final .btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -274,7 +345,8 @@ footer a { color: var(--on-dark); }
     <a class="brand" href="#top">Алексей Кухников</a>
     <nav class="nav" aria-label="Разделы страницы">
       <a href="#practice">Практика</a>
-      <a href="#program">Программа</a>
+      <a href="#map">Результат</a>
+      <a href="#program">Как проходит</a>
       <a href="#terms">Участие</a>
     </nav>
   </div>
@@ -282,259 +354,329 @@ footer a { color: var(--on-dark); }
 
 <main id="main">
 
-<!-- 1. Обложка -->
+<!-- 1. Предложение -->
 <section class="hero" id="top">
   <div class="wrap grid">
     <div class="hero-text">
-      <p class="label">ИИ для своего бизнеса. Практикум Алексея Кухникова</p>
-      <h1>Разберём твою задачу. Начнём решать её с&nbsp;ИИ.</h1>
-      <p class="lead">Практикум для собственников: работа с материалами твоей компании, первый проверяемый результат и четыре недели групповых разборов со мной.</p>
-      <p class="terms-line"><span>До 10 участников</span><span>очный день</span><span>100&nbsp;000&nbsp;₽</span></p>
+      <p class="label">Стратегическая сессия для собственников</p>
+      <h1>Что можно изменить в&nbsp;твоём бизнесе с&nbsp;ИИ. <span>И&nbsp;с&nbsp;чего начать.</span></h1>
+      <p class="lead">Разберём устройство твоей компании, найдём возможности для роста, сокращения ручной работы и повышения управляемости. Выберем приоритеты и соберём маршрут изменений на ближайшие месяцы.</p>
+      <p class="format"><span>Неделя подготовки<span class="dot">·</span></span><span>Очная сессия<span class="dot">·</span></span><span>4&nbsp;недели групповых разборов</span><b>До 10 участников · 100&nbsp;000&nbsp;₽ за участника</b></p>
       <div class="actions">
         <a class="btn" href="https://t.me/alexkukhnikov" data-cta="hero">Обсудить участие</a>
-        <a class="more" href="#practice" data-track="case_open">Посмотреть пример работы</a>
+        <a class="more" href="#map">Посмотреть, с чем уйду</a>
       </div>
+      <p class="no-idea">Необязательно приходить с готовой идеей автоматизации.</p>
     </div>
     <figure class="portrait">
-      <img src="img/avtor.webp" width="320" height="320" alt="Алексей Кухников за рабочим столом">
-      <figcaption><b>Алексей Кухников</b>собственник JBTools</figcaption>
+      <img src="img/avtor.webp" width="372" height="372" alt="Алексей Кухников за рабочим столом">
+      <figcaption><b>Алексей Кухников</b><span class="sep"> · </span>собственник JBTools</figcaption>
     </figure>
   </div>
 </section>
 
 <!-- 2. Узнавание -->
 <section class="recog" aria-labelledby="recog-h">
-  <div class="wrap grid">
-    <h2 id="recog-h">Понимаешь, что ИИ нужен. Но до своей задачи всё не доходит.</h2>
-    <div class="recog-body">
-      <ul>
-        <li>Непонятно, с какой задачи начать, чтобы был толк.</li>
-        <li>Регистрации и настройки отталкивают раньше, чем появляется польза.</li>
-        <li>После вдохновляющей встречи возвращаются текущие дела.</li>
-      </ul>
-      <p class="turn">Поэтому начнём с одной твоей задачи и пройдём путь до результата вместе.</p>
-    </div>
+  <div class="wrap">
+    <h2 id="recog-h">Интерес к&nbsp;ИИ есть. А&nbsp;системных изменений пока нет.</h2>
+    <ul class="situations">
+      <li><b>Пока не начал</b>Настройки, доступы и вопросы безопасности кажутся сложнее, чем потенциальная польза.</li>
+      <li><b>Уже пользуешься</b>Письма и расчёты делаются быстрее, но основные процессы компании остаются прежними.</li>
+      <li><b>Даже составил план</b>Только текущие дела постоянно отодвигают его реализацию.</li>
+    </ul>
+    <p class="turn">Возможно, следующий шаг не ещё один инструмент, а <b>целостное понимание</b>: что менять в компании и как организовать эти изменения.</p>
   </div>
 </section>
 
-<!-- 3. Главная демонстрация -->
+<!-- 3. Возможности -->
 <section class="demo" id="practice" aria-labelledby="demo-h">
   <div class="wrap">
-    <div class="grid">
-      <div class="demo-head">
-        <p class="label"><span class="status">Пример из моей компании · используется в работе</span></p>
-        <h2 id="demo-h">Клиент прислал письмо на 30 позиций. Перед менеджером готовый счёт.</h2>
-      </div>
-      <p class="demo-setup">Задача: ответить на заявку счётом с ценами и наличием и не продать ниже закупки. Система разобрала письмо, нашла позиции в базе и собрала счёт. Ниже он в том виде, в каком его видит менеджер перед отправкой.</p>
+    <h2 id="demo-h">Сначала увидеть возможность. Потом выбирать инструмент.</h2>
+    <p class="section-lead">Изнутри операционки многие возможности не видны. Поэтому начинаем с устройства компании: где заявки, деньги, документы и решения проходят через людей. <b>Инструмент выбираем потом.</b> Иногда это ИИ, иногда настройка существующей системы, обычный расчёт по проверяемым формулам, другой порядок работы или отказ от разработки.</p>
+
+    <div class="case-head">
+      <p class="label"><span class="status">Пример из моей компании · используется в работе</span></p>
+      <h3>Заявка клиента на 30 позиций становится счётом, который проверяет и отправляет менеджер</h3>
     </div>
 
     <figure class="shot">
-      <div class="shot-scroll" tabindex="0" aria-label="Снимок окна счёта, можно прокручивать вбок">
-        <div class="shot-inner">
-          <div class="shot-part">
-            <img src="img/schet-1.webp" width="1310" height="686" alt="Окно «Будет отправлен счёт»: строки заявки с артикулом, количеством, сроком, наличием у поставщика, ценой, скидкой с политикой и пределом, суммой и маржой. Закупка и маржа в рублях размыты.">
-            <span class="pin" style="left:29.9%;top:44.6%" aria-hidden="true">1</span>
-            <span class="pin" style="left:51.1%;top:48.6%" aria-hidden="true">2</span>
-            <span class="pin" style="left:1.2%;top:90.6%" aria-hidden="true">3</span>
-          </div>
-          <div class="shot-cut">ещё 26 строк</div>
-          <div class="shot-part">
-            <img src="img/schet-2.webp" width="1310" height="133" alt="Итог: 298 682 рубля, маржа 21,1% по 26 позициям из 30. Кнопки «Отмена» и «Отправить счёт».">
-            <span class="pin" style="left:98.4%;top:50%" aria-hidden="true">4</span>
-          </div>
+      <div class="shot-full">
+        <div class="shot-part">
+          <img src="img/schet-1.webp" width="1310" height="686" alt="Окно «Будет отправлен счёт»: строки заявки с артикулом, количеством, сроком, наличием у поставщика, ценой, скидкой с политикой и пределом, суммой и маржой. Закупка и маржа в рублях размыты.">
+          <span class="pin" style="left:29.9%;top:44.6%" aria-hidden="true">1</span>
+          <span class="pin" style="left:51.1%;top:48.6%" aria-hidden="true">2</span>
+          <span class="pin" style="left:1.2%;top:90.6%" aria-hidden="true">3</span>
+        </div>
+        <div class="shot-cut">ещё 26 строк</div>
+        <div class="shot-part">
+          <img src="img/schet-2.webp" width="1310" height="133" alt="Итог: 298 682 рубля, маржа 21,1% по 26 позициям из 30. Кнопки «Отмена» и «Отправить счёт».">
+          <span class="pin" style="left:98.4%;top:50%" aria-hidden="true">4</span>
         </div>
       </div>
-      <figcaption class="shot-hint">Снимок шире экрана: его можно листать вбок.</figcaption>
+      <ul class="shot-crops">
+        <li><img src="img/schet-m1.webp" width="417" height="150" alt="Фрагмент счёта: гайковёрт ЗУБР, 1 штука, срок 1 неделя, в наличии 50 на 18.09." loading="lazy"><p><span class="n">1</span>Наличие и срок у поставщика подставлены по каждой строке.</p></li>
+        <li><img src="img/schet-m2.webp" width="318" height="62" alt="Фрагмент счёта: скидка 15%, политика 15%, предел 26,7%, ниже уже дешевле закупки." loading="lazy"><p><span class="n">2</span>Скидка ограничена политикой компании и пределом закупки.</p></li>
+        <li><img src="img/schet-m3.webp" width="417" height="80" alt="Фрагмент счёта: лампа переносная, срок от 20 недель, в наличии 0." loading="lazy"><p><span class="n">3</span>Позиции нет в наличии: что предложить взамен, решает менеджер.</p></li>
+        <li><img class="natural" src="img/schet-m4.webp" width="230" height="62" alt="Фрагмент окна: кнопки «Отмена» и «Отправить счёт»." loading="lazy"><p><span class="n">4</span>Счёт уходит клиенту, только когда менеджер нажмёт «Отправить счёт».</p></li>
+      </ul>
+      <figcaption class="shot-open">Снимок окна перед отправкой счёта. <a href="img/schet-1.webp" target="_blank" rel="noopener">Открыть снимок целиком</a></figcaption>
     </figure>
 
-    <div class="grid notes">
-      <div>
-        <h3>Что сделала система</h3>
-        <ol>
-          <li>Подставила по каждой строке наличие у поставщика и срок.</li>
-          <li>Ограничила скидку: политика компании и предел, ниже которого продажа уходит дешевле закупки.</li>
-        </ol>
-      </div>
-      <div>
-        <h3>Что проверяет человек</h3>
-        <ol style="counter-reset: n 2">
-          <li>Строки без наличия и без цены: что предложить клиенту вместо них.</li>
-          <li>Счёт уходит клиенту, только когда менеджер нажмёт «Отправить счёт».</li>
-        </ol>
-      </div>
-      <div>
-        <h3>Что закрыто на снимке</h3>
-        <p>Адрес клиента, закупочные цены и маржа в рублях по строкам. Остальное показано как есть.</p>
-      </div>
+    <ol class="case-steps">
+      <li><h4>Ситуация</h4><p>Клиенты присылают заявки письмами, часто на десятки позиций. По каждой нужно найти товар, проверить наличие у поставщиков и не дать скидку ниже закупки.</p></li>
+      <li><h4>Решение</h4><p>Не ускорять одну операцию, а связать процесс целиком: входящая заявка, данные поставщиков, правила компании по скидкам и действие сотрудника.</p></li>
+      <li><h4>Что работает</h4><p>Система разбирает письмо, находит позиции, подставляет наличие и срок <span class="n">1</span> и держит скидку в пределах политики <span class="n">2</span>.</p></li>
+      <li><h4>Что за человеком</h4><p>Чем заменить позиции без наличия <span class="n">3</span> и решение отправить счёт <span class="n">4</span>. Без менеджера клиент ничего не получит.</p></li>
+    </ol>
+    <div class="case-foot">
+      <p>На снимке закрыты адрес клиента, закупочные цены и маржа в рублях по строкам.</p>
+      <a href="https://kuhnikov-jbt.github.io/avtomatizacia-podcast/">Как устроена система подробно →</a>
     </div>
 
-    <div class="demo-bridge">
-      <p>На практикуме мы не строим такую систему за день. Ты проходишь тот же цикл на одной своей задаче: ставишь, получаешь результат, проверяешь, исправляешь.</p>
-      <a href="https://kuhnikov-jbt.github.io/avtomatizacia-podcast/" data-track="case_open">Подробный разбор моей системы →</a>
+    <div class="extra">
+      <p class="label">Ещё пример из практики</p>
+      <div class="extra-body">
+        <h3>Калькулятор расхода герметика</h3>
+        <p>Для клиента я сделал калькулятор расхода на основе расчётных характеристик и открытых технических документов. Сам заказчик такую возможность сначала не рассматривал: полезное изменение не всегда видно изнутри.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 4. Цикл и программа -->
-<section class="program" id="program" aria-labelledby="program-h">
+<!-- 4. Карта изменений -->
+<section class="map" id="map" aria-labelledby="map-h">
   <div class="wrap">
-    <h2 id="program-h">Как устроена работа на практикуме</h2>
-    <ol class="cycle" aria-label="Цикл работы">
-      <li>Твоя задача</li>
-      <li>работа с ИИ</li>
-      <li>проверка</li>
-      <li>доработка</li>
-      <li>применение</li>
-    </ol>
+    <h2 id="map-h">Не список идей. Карта изменений твоей компании.</h2>
+    <p class="section-lead">С сессии уходишь с одним рабочим документом. Ты собираешь его по общей методике, я даю обратную связь. В нём четыре части.</p>
 
-    <div class="grid keep">
-      <p class="label">Что останется у тебя</p>
-      <ul>
-        <li><b>Первый проверяемый результат</b>по одной задаче: обработанные данные, рабочий сценарий или небольшой прототип.</li>
-        <li><b>Материалы и настройки</b>своего задания, чтобы повторить работу без меня.</li>
-        <li><b>Проверочный лист</b>где искать ошибки и где решение за человеком.</li>
-        <li><b>План на 8 недель</b>приоритеты, ответственные, как проверить результат.</li>
-      </ul>
+    <div class="grid map-body">
+      <ol class="parts">
+        <li><b>Карта возможностей</b><span>Какие направления имеют смысл именно в твоей компании.</span></li>
+        <li><b>Целевая схема работы</b><span>Что меняется в процессах, движении информации, ролях сотрудников и твоих решениях.</span></li>
+        <li><b>Приоритетные инициативы</b><span>Почему начинаем с них, какой эффект проверяем, какие ограничения учитываем.</span></li>
+        <li><b>Маршрут реализации</b><span>Ответственные, ресурсы и контрольные точки на ближайшие месяцы.</span></li>
+      </ol>
+
+      <div class="doc">
+        <div class="doc-head">
+          <p>Карта изменений · фрагмент</p>
+          <span class="demo-tag">Демонстрационный пример. Не результат участника.</span>
+        </div>
+        <h3>Направления</h3>
+        <table>
+          <thead><tr><th scope="col">Направление</th><th scope="col">Какое изменение рассматриваем</th><th scope="col">Что выяснить до запуска</th></tr></thead>
+          <tbody>
+            <tr><td>Логистика</td><td data-label="Изменение">Сделать расходы сопоставимыми по заказам и направлениям</td><td data-label="Выяснить до запуска">Какие данные доступны и какие решения будут приниматься по ним</td></tr>
+            <tr><td>Согласования</td><td data-label="Изменение">Уменьшить ручное участие собственника в типовых решениях</td><td data-label="Выяснить до запуска">Полномочия, исключения и ответственные</td></tr>
+            <tr><td>Работа с клиентами</td><td data-label="Изменение">Превратить повторяющийся расчёт в удобный сервис</td><td data-label="Выяснить до запуска">Кто использует, как проверяется расчёт и в чём польза</td></tr>
+          </tbody>
+        </table>
+        <h3>Первый шаг по направлению «Согласования»</h3>
+        <ol class="chain">
+          <li><span>Шаг</span>Описать действующий процесс согласований</li>
+          <li><span>Ответственный</span>Назначенный руководитель</li>
+          <li><span>Данные и ресурс</span>Примеры типовых и исключительных случаев</li>
+          <li><span>Контрольная точка</span>Согласованные правила для пилотного изменения</li>
+        </ol>
+      </div>
     </div>
 
-    <div class="grid stages">
+    <div class="horizon">
+      <div>
+        <p class="when">Подробно</p>
+        <h3>Первые 8 недель</h3>
+        <p>Конкретные шаги по выбранным инициативам: кто отвечает, какой нужен ресурс, когда и по какому признаку проверяем результат.</p>
+      </div>
+      <div>
+        <p class="when">Ориентир</p>
+        <h3>6 месяцев</h3>
+        <p>Последовательность следующих изменений. Это не обещание спланировать всё за день: маршрут пересматриваем по мере того, как подтверждаются первые шаги.</p>
+      </div>
+    </div>
+
+    <details>
+      <summary>Что фиксируется по каждой выбранной инициативе</summary>
+      <div class="disclosure-body">
+        <ul class="dash">
+          <li>Бизнес-цель и текущая проблема</li>
+          <li>Ожидаемое изменение и гипотеза пользы</li>
+          <li>Данные и зависимости</li>
+          <li>Ответственный и ближайшее действие</li>
+          <li>Критерий проверки</li>
+          <li>Условие, при котором продолжаем, меняем или останавливаем</li>
+        </ul>
+        <p class="aside">Карта описывает работу бизнеса и порядок изменений. Это не техническое задание и не архитектура программной системы.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- 5. Процесс -->
+<section class="program" id="program" aria-labelledby="program-h">
+  <div class="wrap">
+    <h2 id="program-h"><span>До встречи расширяем представление.</span> <span>На встрече выбираем.</span> <span>После двигаемся по плану.</span></h2>
+    <div class="stages">
       <div class="stage stage-1">
         <p class="when">Неделя до встречи</p>
         <h3>Подготовка</h3>
-        <p>Приносишь 2–3 задачи, вместе выбираем одну. Готовишь небольшие обезличенные примеры и описание хорошего результата. На онлайн-встрече до 90 минут проверяем, что всё запускается.</p>
-        <p class="tasks">Подходят задачи вроде: сравнить таблицы, достать сведения из документов, собрать отчёт по набору материалов, сделать небольшой инструмент для повторяющейся операции.</p>
+        <p>Короткие материалы и демонстрации, разбор кейсов, паспорт компании и онлайн-встреча до 90 минут.</p>
+        <p class="note">Не нужно заранее выбирать задачу или устанавливать программы.</p>
       </div>
       <div class="stage stage-2">
         <p class="when">Очный день · 6 часов работы</p>
-        <h3>Работа над твоей задачей</h3>
-        <p>Смотрим метод на моих реальных примерах. Уточняем твою задачу и решаем её в инструменте на твоих материалах. Проверяем результат, повторяем на нескольких примерах и собираем план на 8 недель.</p>
+        <h3>Стратегическая сессия</h3>
+        <p>Разбираем твой бизнес, рассматриваем возможности, выбираем направления и собираем карту изменений с обратной связью.</p>
       </div>
       <div class="stage stage-3">
         <p class="when">4 недели после</p>
-        <h3>Разборы в группе</h3>
-        <p>Раз в неделю онлайн-встреча до 2 часов. Перед ней присылаешь, что сделал и где застрял. Между встречами нужна самостоятельная работа.</p>
+        <h3>Групповые разборы</h3>
+        <p>Раз в неделю онлайн до 2 часов: как идёт движение, что мешает, какие решения следующие.</p>
       </div>
     </div>
 
     <div class="disclosures">
-      <details data-track="plan_example_open">
-        <summary>Программа очного дня по блокам</summary>
+      <details>
+        <summary>Подготовка: что посмотрим и что такое паспорт компании</summary>
         <div class="disclosure-body">
-          <dl class="day">
-            <dt>45 минут</dt><dd><b>Метод на реальной работе</b>Мои примеры: исходная задача, действия, результат, ошибка и проверка.</dd>
-            <dt>45 минут</dt><dd><b>Уточнить свою задачу</b>Входные данные, ожидаемый результат, ограничения, способ проверки. Большую задачу сужаем до первого полезного фрагмента.</dd>
-            <dt>150 минут</dt><dd><b>Практическая работа</b>Работаешь в инструменте на своих материалах. Короткие общие показы чередуются с самостоятельной работой и обратной связью.</dd>
-            <dt>75 минут</dt><dd><b>Проверить и повторить</b>Сравнение с ручным результатом, поиск пропусков, повтор на нескольких примерах, исправление инструкции.</dd>
-            <dt>45 минут</dt><dd><b>Следующие шаги</b>Результат, первое действие после встречи, ответственный, критерий проверки и план на 8 недель.</dd>
-          </dl>
-          <p>Перерывы и обед в эти 6 часов не входят.</p>
+          <h4>Мини-обучение и демонстрации</h4>
+          <ul class="dash">
+            <li>Чем различаются чат-помощник, создание инструмента и изменение бизнес-процесса.</li>
+            <li>Какие бывают изменения: внутренний инструмент, сервис для клиентов, управленческая информация, взаимодействие сотрудников.</li>
+            <li>Как отличить привлекательную демонстрацию от полезного рабочего решения.</li>
+            <li>Какие вопросы проверить до реализации.</li>
+          </ul>
+          <h4>Паспорт компании</h4>
+          <p>Как бизнес зарабатывает, где основные расходы, какие решения замыкаются на тебе, какие процессы отнимают внимание, где теряется информация, какие системы уже используются и какие изменения откладываются. Описываешь процессы своими словами, без чувствительных данных. Я изучаю паспорт до встречи, чтобы на сессии говорить о твоей компании предметно.</p>
+          <p class="aside">Техническое задание и выбранная автоматизация не нужны. Материалы <a href="../">курса по работе с ИИ-инструментами</a> остаются справочными: проходить их и покупать подписки для участия не нужно.</p>
         </div>
       </details>
       <details>
-        <summary>Что разбираем на четырёх встречах</summary>
+        <summary>Очный день по шагам</summary>
         <div class="disclosure-body">
-          <ul class="weeks">
-            <li><span>Неделя 1</span>Повторяешь работу после очного дня, разбираем, что мешает применить её в реальном процессе.</li>
-            <li><span>Неделя 2</span>Повторяющиеся ошибки и качество результата; при необходимости меняем постановку.</li>
-            <li><span>Неделя 3</span>Делаем процесс повторяемым: инструкция, проверка, роль человека. Сможет ли коллега повторить.</li>
-            <li><span>Неделя 4</span>Итоги: что продолжать, что менять или остановить. Обновляем план на следующие недели.</li>
-          </ul>
-          <p>Ориентир: кроме встречи 1–2 часа в неделю на самостоятельную практику. Материалы и вопросы к разборам идут в канал группы.</p>
+          <p>Короткое вступление задаёт общую рамку. Дальше работаем вокруг компаний участников:</p>
+          <ol class="steps" style="margin-top:14px">
+            <li>Цели собственника и ограничения бизнеса.</li>
+            <li>Возможности изменить процессы, информацию, взаимодействие и управленческие решения.</li>
+            <li>Как должна работать выбранная часть компании после изменений.</li>
+            <li>Сравнение направлений по эффекту, сложности, готовности данных, рискам и нагрузке на команду.</li>
+            <li>Выбор инициатив и связей между ними. Часть идей обоснованно откладываем или отклоняем.</li>
+            <li>Исполнители, твоя роль, ресурсы, ближайшие действия и точки проверки.</li>
+          </ol>
+          <p class="aside">Это групповая работа: общая методика, твоя карта и адресная обратная связь, а не отдельная многочасовая консультация каждому. Шесть часов считаются без перерывов.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Четыре разбора после встречи</summary>
+        <div class="disclosure-body">
+          <ol class="steps">
+            <li>Первый шаг: кто отвечает, что началось, какое решение или ресурс блокирует движение.</li>
+            <li>Первые данные и проверки: что подтверждается, что нужно изменить.</li>
+            <li>Включение изменений в работу команды: участники процесса, порядок, ответственность.</li>
+            <li>Промежуточные итоги: что продолжать, изменить или остановить. Обновляем следующий отрезок маршрута.</li>
+          </ol>
+          <p class="aside">Перед встречей присылаешь короткий статус и вопрос. Между встречами организуешь реализацию сам, через сотрудника или подрядчика. Темп внедрения у всех свой.</p>
         </div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- 5. Автор -->
+<!-- 6. Автор -->
 <section class="author" aria-labelledby="author-h">
   <div class="wrap grid">
-    <p class="label" id="author-h">Почему веду я</p>
-    <div class="author-text">
-      <p class="big">Около десяти лет я развиваю свою компанию JBTools. Раньше любую идею для неё приходилось отдавать подрядчику и ждать.</p>
-      <p class="big">Теперь я сам проверяю идеи и собираю решения под задачи своей компании. Так появилась система из примера выше. На практикуме показываю этот способ работы на твоих задачах.</p>
+    <div class="author-side">
+      <h2 id="author-h">Смотрю на бизнес целиком, а не только на инструменты ИИ.</h2>
       <ul class="facts">
-        <li><b>JBTools</b>мой бизнес, я собственник</li>
-        <li><b>≈ 10 лет</b>своего бизнеса</li>
-        <li><b>≈ 1 500 часов</b>консультационного опыта</li>
+        <li><b>JBTools:</b> собственник, около 10 лет</li>
+        <li><b>Около 1 500 часов</b> консультаций, в том числе по продажам и переговорам</li>
       </ul>
-      <p class="listen">Послушать подробнее:
+      <p class="listen">Послушать, как я рассуждаю:
         <a href="https://www.youtube.com/watch?v=m2Qh8SEuPds">подкаст про вайб-кодинг</a>
         <a href="https://www.youtube.com/watch?v=5QWl970FvPo">подкаст «Грань»</a>
       </p>
     </div>
+    <div class="author-text">
+      <p class="big">Около десяти лет я развиваю JBTools. Мне интересно, как связаны продажи, снабжение, деньги, документы и решения собственника, и как организовать эту работу иначе.</p>
+      <p class="big">ИИ дал мне возможность самому проверять идеи и создавать инструменты для своей компании. На сессии соединяем этот опыт с разбором твоего бизнеса: где нужны технологии, где достаточно изменить процесс, а где пока не стоит начинать разработку.</p>
+    </div>
   </div>
 </section>
 
-<!-- 6. Условия -->
+<!-- 7. Условия -->
 <section class="terms" id="terms" aria-labelledby="terms-h">
   <div class="wrap">
-    <h2 id="terms-h">Участие</h2>
-    <div class="grid">
+    <div class="terms-box">
       <div class="price">
+        <h2 class="label" id="terms-h">Участие</h2>
         <p class="sum">100&nbsp;000&nbsp;₽</p>
         <p class="per">за участника · до 10 человек в группе</p>
-        <p class="when">Дату и место ближайшей группы обсудим при знакомстве.</p>
+        <p class="when">Дату и место ближайшей группы обсудим, когда напишешь.</p>
         <a class="btn btn-light" href="https://t.me/alexkukhnikov" data-cta="terms">Обсудить участие</a>
       </div>
       <div class="terms-body">
         <section>
           <h3>Входит</h3>
-          <ul>
+          <ul class="dash">
             <li>Подготовительные материалы и онлайн-встреча до 90 минут</li>
-            <li>Очный день: 6 часов работы над твоей задачей</li>
-            <li>Четыре групповых разбора до 2 часов</li>
-            <li>Рабочие шаблоны и проверочный лист</li>
+            <li>Предварительное изучение паспорта твоей компании</li>
+            <li>Очная стратегическая сессия, 6 часов работы</li>
+            <li>Карта изменений, которую собираешь с моей обратной связью</li>
+            <li>Четыре групповых онлайн-разбора до 2 часов</li>
           </ul>
         </section>
         <section>
-          <h3>Оплачивается отдельно</h3>
-          <ul>
-            <li>Подписки на ИИ и нужные сервисы: состав и сумму назову до оплаты</li>
-            <li>Дорога и проживание</li>
-          </ul>
+          <h3>Подходит</h3>
+          <p>Собственнику, который готов обсуждать устройство бизнеса, принимать решения и организовывать исполнение. Готовая идея автоматизации и навык программирования не нужны.</p>
+          <p class="small">Если хочется передать разработку под ключ и больше не участвовать, это другой формат.</p>
         </section>
-        <p class="bounds">Сервер покупать не нужно. Это групповая практика, а не внедрение под ключ: разработку за участника я не веду и окупаемость не обещаю. В канале группы отвечаю на вопросы к разборам, но не круглосуточно.</p>
+        <section>
+          <p class="small">Подписки и сервер для участия покупать не нужно. Расходы на реализацию выбранных решений в стоимость не входят. Дорога и проживание отдельно.</p>
+        </section>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. Вопросы -->
+<!-- 8. Вопросы -->
 <section class="faq" aria-labelledby="faq-h">
   <div class="wrap grid">
     <h2 id="faq-h">Вопросы</h2>
     <div class="faq-list">
       <details>
-        <summary>Нужно ли уметь программировать?</summary>
-        <div class="disclosure-body"><p>Нет. Работаем в одной рабочей среде из моего курса, задачу ставим обычными словами. Нужно уметь описать свою работу и быть готовым проверять результат.</p></div>
+        <summary>Я не понимаю, что автоматизировать. Мне рано?</summary>
+        <div class="disclosure-body"><p>Нет. Поиск подходящих направлений входит в сессию. Для начала нужно описать бизнес и то, что хотелось бы изменить, а не составить техническое задание.</p></div>
       </details>
       <details>
-        <summary>Что если моя задача большая?</summary>
-        <div class="disclosure-body"><p>До встречи уменьшаем её до первого полезного фрагмента, который реально сделать за день. Остальное попадает в план на 8 недель. Подключение к живым системам компании, например к CRM, это отдельный следующий этап.</p></div>
+        <summary>Я уже пользуюсь ИИ. В чём ценность?</summary>
+        <div class="disclosure-body"><p>Работаем не над знакомством с инструментами, а над тем, как связать возможности с процессами, приоритетами и управлением изменениями в компании.</p></div>
       </details>
       <details>
-        <summary>Как быть с данными компании?</summary>
-        <div class="disclosure-body"><p>Берём небольшие обезличенные примеры. Ты работаешь в своих аккаунтах, пароли и платёжные данные мне не передаёшь. Клиентам ничего непроверенного не отправляем.</p></div>
+        <summary>Нужно уметь программировать и всё заранее установить?</summary>
+        <div class="disclosure-body"><p>Нет. На сессии не требуется разрабатывать программу. Подготовка помогает разобраться в возможностях и собрать картину бизнеса.</p></div>
       </details>
       <details>
-        <summary>Что нужно из техники?</summary>
-        <div class="disclosure-body"><p>Рабочий ноутбук, доступ к инструменту и небольшой тестовый запуск до встречи. Вопросы по установке собираю заранее и разбираем их на подготовительной встрече.</p></div>
+        <summary>У меня уже есть план, но он не выполняется.</summary>
+        <div class="disclosure-body"><p>Разбираем не только содержание плана, но и исполнение: ответственность, ресурс, препятствия, ближайший шаг и точки принятия решений. После сессии возвращаемся к этому на групповых разборах.</p></div>
       </details>
       <details>
-        <summary>Как оплатить?</summary>
-        <div class="disclosure-body"><p>Онлайн-оплаты на странице нет. Сначала обсуждаем твою задачу в Telegram, потом я присылаю дату, место и условия оплаты.</p></div>
+        <summary>Как быть с данными и безопасностью?</summary>
+        <div class="disclosure-body"><p>Для первичного разбора не нужны пароли, платёжные данные или доступ к рабочим системам. Используем описания процессов и обезличенные примеры. Риски и ограничения учитываем при выборе направлений; сессия не заменяет профильный аудит конкретного внедрения.</p></div>
+      </details>
+      <details>
+        <summary>Будет ли готовая система?</summary>
+        <div class="disclosure-body"><p>Результат сессии: карта изменений и организация дальнейших действий. Разработка и внедрение выбранных решений идут отдельно: тобой, командой или подрядчиком.</p></div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- 8. Финал -->
+<!-- Финал -->
 <section class="final" aria-labelledby="final-h">
   <div class="wrap">
-    <h2 id="final-h">Напиши, какую задачу хочешь решить. Обсудим, подойдёт ли тебе практикум.</h2>
+    <h2 id="final-h">Расскажи о своей компании и о том, где ты сейчас с ИИ.</h2>
+    <p class="sub">Обсудим, что даст тебе стратегическая сессия.</p>
     <a class="btn btn-light" href="https://t.me/alexkukhnikov" data-cta="final">Обсудить участие</a>
-    <p>Пишешь мне лично в Telegram: @alexkukhnikov</p>
+    <p class="contact">Пишешь мне лично в Telegram: @alexkukhnikov</p>
   </div>
 </section>
 
@@ -542,7 +684,7 @@ footer a { color: var(--on-dark); }
 
 <footer>
   <div class="wrap">
-    <span class="who">Алексей Кухников · практикум для собственников бизнеса</span>
+    <span class="who">Алексей Кухников · стратегическая сессия для собственников бизнеса</span>
     <a href="https://t.me/troubleshooterpro">Telegram-канал</a>
     <a href="https://www.youtube.com/@peregovornayakomnata">YouTube</a>
     <a href="https://www.instagram.com/troubleshooterpro">Instagram</a>
